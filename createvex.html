@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>VEX CREATE KOREA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      font-family: "Inter", sans-serif;
+      background-color: #050816;
+      color: #f9fafb;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      padding: 0 1rem;
+      background-image: url("images/temphero.jpg");  /* change this */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        rgba(0, 0, 0, 0.55),
+        rgba(0, 0, 0, 0.70)
+      );
+      z-index: 0;
+    }
+
+    .hero > .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: #d1d5db;
+      margin-bottom: .8rem;
+      opacity: .95;
+    }
+
+    .hero-title {
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: .04em;
+      line-height: 1.1;
+    }
+
+    .red-highlight {
+      color: #e0243a;
+      font-weight: 900;
+    }
+
+    .hero-subtitle {
+      margin-top: .8rem;
+      font-size: 1.1rem;
+      color: #e5e7eb;
+      max-width: 550px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-buttons {
+      margin-top: 1.8rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .btn-main {
+      background: #e0243a;
+      border: none;
+      padding: .75rem 1.6rem;
+      border-radius: 50px;
+      font-weight: 600;
+    }
+
+    .btn-outline {
+      border-radius: 50px;
+      border: 1px solid #fff;
+      padding: .75rem 1.6rem;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* ===== ABOUT SECTION (bright) ===== */
+    .about-section {
+      padding: 5rem 0 4.5rem;
+      background: #f9fafb;
+      color: #111827;
+    }
+
+    .about-kicker {
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .78rem;
+      color: #6b7280;
+      margin-bottom: .5rem;
+    }
+
+    .about-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      margin-bottom: .75rem;
+      color: #111827;
+    }
+
+    .about-subtitle {
+      font-size: 1.05rem;
+      color: #374151;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-text {
+      font-size: .98rem;
+      color: #4b5563;
+      line-height: 1.7;
+      max-width: 40rem;
+    }
+
+    .highlight-text {
+      color: #e0243a;
+      font-weight: 700;
+    }
+
+    .about-cta-group {
+      margin-top: 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn-pill {
+      border-radius: 999px;
+      padding: .65rem 1.6rem;
+      font-size: .9rem;
+      font-weight: 600;
+    }
+
+    .btn-pill-primary {
+      background: #111827;
+      border: 1px solid #111827;
+      color: #f9fafb;
+    }
+
+    .btn-pill-outline {
+      background: transparent;
+      border: 1px solid #9ca3af;
+      color: #374151;
+    }
+
+    .btn-pill-primary:hover {
+      background:#020617;
+      border-color:#020617;
+      color:#fff;
+    }
+
+    .btn-pill-outline:hover {
+      background:#e5e7eb;
+      color:#111827;
+    }
+
+    /* Right card */
+    .about-card {
+      background: #ffffff;
+      border-radius: 1.25rem;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      padding: 1.8rem 1.6rem;
+    }
+
+    .about-card-tag {
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: #6b7280;
+      margin-bottom: .9rem;
+    }
+
+    .about-card-org {
+      display: flex;
+      gap: 0.9rem;
+      margin-bottom: 1rem;
+      align-items: flex-start;
+    }
+
+    .about-card-org-logo img {
+      height: 72px;              /* make visual size similar */
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .about-card-org-body {
+      flex: 1;
+    }
+
+    .about-card-org-title {
+      font-size: .98rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: .25rem;
+    }
+
+    .about-card-org-text {
+      font-size: .86rem;
+      color: #4b5563;
+      margin-bottom: .3rem;
+    }
+
+    .about-card-org-link {
+      font-size: .8rem;
+      font-weight: 600;
+      color: #1d4ed8;
+      text-decoration: none;
+    }
+
+    .about-card-org-link:hover {
+      text-decoration: underline;
+      color:#1e40af;
+    }
+
+    .about-card-divider {
+      height: 1px;
+      background: #e5e7eb;
+      margin: 1.1rem 0;
+    }
+
+    .about-card-footer-text {
+      font-size: .82rem;
+      color: #6b7280;
+      margin-bottom: .8rem;
+    }
+
+    .about-card-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: .6rem 1rem;
+      border-radius: 999px;
+      border: 1px solid #111827;
+      font-size: .85rem;
+      font-weight: 600;
+      color: #111827;
+      background: #ffffff;
+      text-decoration: none;
+      margin-bottom: .55rem;
+    }
+
+    .about-card-btn:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-card-btn:hover {
+      background: #111827;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- HERO SECTION -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">In partnership with CREATE & REC Foundation</div>
+
+    <h1 class="hero-title">
+      <span class="red-highlight">VEX</span> CREATE KOREA
+    </h1>
+
+    <p class="hero-subtitle">
+      The next generation robotics challenge for future innovators in Korea.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#" class="btn btn-main">Register</a>
+      <a href="#" class="btn btn-outline">Watch Trailer</a>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT SECTION -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+
+      <!-- Left: text -->
+      <div class="col-lg-7">
+        <div class="about-kicker">About</div>
+
+        <h2 class="about-title">
+          VEX CREATE KOREA
+        </h2>
+
+        <p class="about-subtitle">
+          <span class="highlight-text">VEX CREATE KOREA</span> gives students in Korea the chance to experience a high-level
+          robotics tournament with global standards in production, game design, and team experience.
+        </p>
+
+        <p class="about-text mb-3">
+          The competition is designed for elementary, middle, and high school teams who want to
+          go beyond classroom projects and take on an official <span class="highlight-text">VEX</span>.
+          Teams design, build, and program robots that must work reliably under real match pressure.
+        </p>
+
+        <p class="about-text mb-3">
+          With support from the <span class="highlight-text">REC Foundation</span> and
+          <span class="highlight-text">CREATE</span>, VEX CREATE KOREA aims to grow a strong robotics
+          ecosystem in Korea by connecting schools, coaches, and students through meaningful STEM events.
+        </p>
+
+        <div class="about-cta-group">
+          <button class="btn btn-pill btn-pill-primary">Event Overview</button>
+          <button class="btn btn-pill btn-pill-outline">Competition Details</button>
+        </div>
+      </div>
+
+      <!-- Right: partner card -->
+      <div class="col-lg-5">
+        <div class="about-card">
+          <div class="about-card-tag">Event partners</div>
+
+          <!-- REC Foundation block -->
+          <div class="about-card-org">
+            <div class="about-card-org-logo">
+              <!-- 400x383, square-ish -->
+              <img src="images/rec-logo.png" alt="REC Foundation logo">
+            </div>
+            <div class="about-card-org-body">
+              <div class="about-card-org-title">REC Foundation</div>
+              <p class="about-card-org-text">
+                The Robotics Education & Competition Foundation supports student-centered
+                robotics programs worldwide, including the VEX Robotics Competition and
+                other STEM initiatives.
+              </p>
+              <a href="#" class="about-card-org-link">Learn more about REC Foundation →</a>
+            </div>
+          </div>
+
+          <div class="about-card-divider"></div>
+
+          <!-- CREATE block -->
+          <div class="about-card-org">
+            <div class="about-card-org-logo">
+              <!-- 2164x542, wide; height is fixed so it visually matches REC -->
+              <img src="images/create-logo2.png" alt="CREATE logo">
+            </div>
+            <div class="about-card-org-body">
+              <div class="about-card-org-title">CREATE</div>
+              <p class="about-card-org-text">
+                CREATE is a Korea-based partner that helps schools and coaches launch and
+                grow robotics teams, providing training, mentoring, and event support.
+              </p>
+              <a href="#" class="about-card-org-link">Learn more about CREATE →</a>
+            </div>
+          </div>
+
+          <div class="about-card-divider"></div>
+
+          <p class="about-card-footer-text">
+            Together, REC Foundation and CREATE work with local schools and event partners
+            to deliver high-quality robotics experiences for students across Korea.
+          </p>
+          <a href="#" class="about-card-btn">Contact the Organizers</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- HOSTING ORGANIZATION SECTION -->
+<section class="host-section" style="background:#ffffff; padding:5rem 0; color:#111827;">
+  <div class="container">
+
+    <div class="row g-5 align-items-center">
+
+      <!-- Left: Logo -->
+      <div class="col-lg-5 text-center">
+        <img src="images/lex-logo.png" 
+             alt="LEX Consulting Logo"
+             style="max-width: 260px; width:100%; height:auto; object-fit:contain;">
+      </div>
+
+      <!-- Right: Text -->
+      <div class="col-lg-7">
+        <div style="text-transform:uppercase; letter-spacing:.17em; font-size:.8rem; color:#6b7280; margin-bottom:.5rem;">
+          Hosted by
+        </div>
+
+        <h2 style="font-size:2rem; font-weight:800; margin-bottom:1rem; color:#111827;">
+          LEX
+        </h2>
+
+        <p style="font-size:1rem; color:#4b5563; line-height:1.7; margin-bottom:1rem;">
+          <span style="color:#e0243a; font-weight:700;">LEX Consulting</span> is an 
+          academic training and STEM program organization in South Korea that specializes 
+          in robotics education, competition hosting, and global STEM partnerships.
+        </p>
+
+        <p style="font-size:1rem; color:#4b5563; line-height:1.7; margin-bottom:1rem;">
+          The company works with leading international schools and educational institutions 
+          to deliver high-quality academic programs, Olympiad-level coaching, and robotics 
+          competitions that prepare students for global challenges such as the 
+          <span style="color:#e0243a; font-weight:700;">VEX Robotics Competition</span>.
+        </p>
+
+        <p style="font-size:1rem; color:#4b5563; line-height:1.7; margin-bottom:1.4rem;">
+          As the official hosting partner of <span style="color:#e0243a; font-weight:700;">VEX CREATE KOREA</span>, 
+          LEX Consulting ensures a professional, well-organized, and student-centered competition 
+          experience supported by experienced mentors and event specialists.
+        </p>
+
+        <div style="margin-top:1.6rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+          <a href="#" 
+             style="
+              padding:.65rem 1.6rem;
+              border-radius:999px;
+              background:#111827;
+              color:#ffffff;
+              font-size:.9rem;
+              font-weight:600;
+              text-decoration:none;">
+            About LEX Consulting
+          </a>
+
+          <a href="#" 
+             style="
+              padding:.65rem 1.6rem;
+              border-radius:999px;
+              border:1px solid #9ca3af;
+              color:#374151;
+              font-size:.9rem;
+              font-weight:600;
+              text-decoration:none;">
+            Visit Official Website
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
