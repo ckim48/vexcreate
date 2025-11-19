@@ -5,287 +5,41 @@
   <title>VEX CREATE KOREA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Bootstrap -->
+  <!-- Bootstrap for grid / container / row / col -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-  <style>
-    body, html {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      font-family: "Inter", sans-serif;
-      background-color: #050816;
-      color: #f9fafb;
-    }
-
-    /* ===== HERO SECTION ===== */
-    .hero {
-      position: relative;
-      height: 100vh;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      text-align: center;
-      padding: 0 1rem;
-      background-image: url("images/temphero.jpg");  /* change this */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        rgba(0, 0, 0, 0.55),
-        rgba(0, 0, 0, 0.70)
-      );
-      z-index: 0;
-    }
-
-    .hero > .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-eyebrow {
-      font-size: .85rem;
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      color: #d1d5db;
-      margin-bottom: .8rem;
-      opacity: .95;
-    }
-
-    .hero-title {
-      font-size: clamp(2.6rem, 5vw, 4rem);
-      font-weight: 800;
-      letter-spacing: .04em;
-      line-height: 1.1;
-    }
-
-    .red-highlight {
-      color: #e0243a;
-      font-weight: 900;
-    }
-
-    .hero-subtitle {
-      margin-top: .8rem;
-      font-size: 1.1rem;
-      color: #e5e7eb;
-      max-width: 550px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hero-buttons {
-      margin-top: 1.8rem;
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-    }
-
-    .btn-main {
-      background: #e0243a;
-      border: none;
-      padding: .75rem 1.6rem;
-      border-radius: 50px;
-      font-weight: 600;
-    }
-
-    .btn-outline {
-      border-radius: 50px;
-      border: 1px solid #fff;
-      padding: .75rem 1.6rem;
-      color: #fff;
-      font-weight: 600;
-    }
-
-    /* ===== ABOUT SECTION (bright) ===== */
-    .about-section {
-      padding: 5rem 0 4.5rem;
-      background: #f9fafb;
-      color: #111827;
-    }
-
-    .about-kicker {
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      font-size: .78rem;
-      color: #6b7280;
-      margin-bottom: .5rem;
-    }
-
-    .about-title {
-      font-size: 2.1rem;
-      font-weight: 800;
-      margin-bottom: .75rem;
-      color: #111827;
-    }
-
-    .about-subtitle {
-      font-size: 1.05rem;
-      color: #374151;
-      margin-bottom: 1.2rem;
-    }
-
-    .about-text {
-      font-size: .98rem;
-      color: #4b5563;
-      line-height: 1.7;
-      max-width: 40rem;
-    }
-
-    .highlight-text {
-      color: #e0243a;
-      font-weight: 700;
-    }
-
-    .about-cta-group {
-      margin-top: 1.8rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .btn-pill {
-      border-radius: 999px;
-      padding: .65rem 1.6rem;
-      font-size: .9rem;
-      font-weight: 600;
-    }
-
-    .btn-pill-primary {
-      background: #111827;
-      border: 1px solid #111827;
-      color: #f9fafb;
-    }
-
-    .btn-pill-outline {
-      background: transparent;
-      border: 1px solid #9ca3af;
-      color: #374151;
-    }
-
-    .btn-pill-primary:hover {
-      background:#020617;
-      border-color:#020617;
-      color:#fff;
-    }
-
-    .btn-pill-outline:hover {
-      background:#e5e7eb;
-      color:#111827;
-    }
-
-    /* Right card */
-    .about-card {
-      background: #ffffff;
-      border-radius: 1.25rem;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
-      padding: 1.8rem 1.6rem;
-    }
-
-    .about-card-tag {
-      font-size: .75rem;
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      color: #6b7280;
-      margin-bottom: .9rem;
-    }
-
-    .about-card-org {
-      display: flex;
-      gap: 0.9rem;
-      margin-bottom: 1rem;
-      align-items: flex-start;
-    }
-
-    .about-card-org-logo img {
-      height: 72px;              /* make visual size similar */
-      width: auto;
-      object-fit: contain;
-      display: block;
-    }
-
-    .about-card-org-body {
-      flex: 1;
-    }
-
-    .about-card-org-title {
-      font-size: .98rem;
-      font-weight: 700;
-      color: #111827;
-      margin-bottom: .25rem;
-    }
-
-    .about-card-org-text {
-      font-size: .86rem;
-      color: #4b5563;
-      margin-bottom: .3rem;
-    }
-
-    .about-card-org-link {
-      font-size: .8rem;
-      font-weight: 600;
-      color: #1d4ed8;
-      text-decoration: none;
-    }
-
-    .about-card-org-link:hover {
-      text-decoration: underline;
-      color:#1e40af;
-    }
-
-    .about-card-divider {
-      height: 1px;
-      background: #e5e7eb;
-      margin: 1.1rem 0;
-    }
-
-    .about-card-footer-text {
-      font-size: .82rem;
-      color: #6b7280;
-      margin-bottom: .8rem;
-    }
-
-    .about-card-btn {
-      display: block;
-      width: 100%;
-      text-align: center;
-      padding: .6rem 1rem;
-      border-radius: 999px;
-      border: 1px solid #111827;
-      font-size: .85rem;
-      font-weight: 600;
-      color: #111827;
-      background: #ffffff;
-      text-decoration: none;
-      margin-bottom: .55rem;
-    }
-
-    .about-card-btn:last-child {
-      margin-bottom: 0;
-    }
-
-    .about-card-btn:hover {
-      background: #111827;
-      color: #ffffff;
-      text-decoration: none;
-    }
-
-  </style>
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="index.html" class="brand-link">
+      <span class="brand-mark">VEX CREATE KOREA</span>
+    </a>
+
+    <!-- Optional section links
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#register">Register</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </nav>
+    -->
+
+    <a href="details.html" class="nav-cta">
+      Event Details
+    </a>
+  </div>
+</header>
+
 <!-- HERO SECTION -->
-<header class="hero">
+<header class="hero" id="top">
   <div class="container">
     <div class="hero-eyebrow">In partnership with CREATE & REC Foundation</div>
 
@@ -298,7 +52,7 @@
     </p>
 
     <div class="hero-buttons">
-      <a href="#" class="btn btn-main">Register</a>
+      <a href="#register" class="btn btn-main">Register</a>
       <a href="#" class="btn btn-outline">Watch Trailer</a>
     </div>
   </div>
@@ -343,12 +97,11 @@
       <!-- Right: partner card -->
       <div class="col-lg-5">
         <div class="about-card">
-          <div class="about-card-tag">Event partners</div>
+          <div class="about-card-tag">Cooperative foundations</div>
 
           <!-- REC Foundation block -->
           <div class="about-card-org">
             <div class="about-card-org-logo">
-              <!-- 400x383, square-ish -->
               <img src="images/rec-logo.png" alt="REC Foundation logo">
             </div>
             <div class="about-card-org-body">
@@ -367,7 +120,6 @@
           <!-- CREATE block -->
           <div class="about-card-org">
             <div class="about-card-org-logo">
-              <!-- 2164x542, wide; height is fixed so it visually matches REC -->
               <img src="images/create-logo2.png" alt="CREATE logo">
             </div>
             <div class="about-card-org-body">
@@ -383,18 +135,18 @@
           <div class="about-card-divider"></div>
 
           <p class="about-card-footer-text">
-            Together, REC Foundation and CREATE work with local schools and event partners
-            to deliver high-quality robotics experiences for students across Korea.
+            REC Foundation and CREATE cooperate with local organizers to support
+            high-quality robotics experiences for students across Korea.
           </p>
-          <a href="#" class="about-card-btn">Contact the Organizers</a>
         </div>
       </div>
 
     </div>
   </div>
 </section>
+
 <!-- HOSTING ORGANIZATION SECTION -->
-<section class="host-section" style="background:#ffffff; padding:5rem 0; color:#111827;">
+<section class="host-section">
   <div class="container">
 
     <div class="row g-5 align-items-center">
@@ -467,6 +219,116 @@
 
   </div>
 </section>
+
+<!-- CTA SECTION -->
+<section class="cta-section" id="register">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-layout">
+
+        <!-- Left: main message -->
+        <div>
+          <div class="cta-left-header">
+            <div class="cta-kicker">Hosted by LEX</div>
+            <h2 class="cta-title">
+              Join the <span>First</span> VEX CREATE KOREA
+            </h2>
+            <div class="cta-sub">
+              One day of official-style VEX competition for elementary, middle, and high school teams.
+            </div>
+          </div>
+
+          <div class="cta-badges">
+            <div class="cta-pill">Jan 10 · 2026</div>
+            <div class="cta-pill">Chadwick International · Incheon</div>
+            <div class="cta-pill cta-pill-ghost">Limited team slots</div>
+          </div>
+
+          <div class="cta-actions">
+            <button class="btn-cta-main">
+              Register a Team
+            </button>
+            <button class="btn-cta-outline">
+              Download Event Brief
+            </button>
+          </div>
+
+          <div class="cta-logo-row">
+            <img src="images/lex-logo.png" alt="LEX Logo">
+            <img src="images/rec-logo.png" alt="REC Foundation Logo">
+            <img src="images/create-logo2.png" alt="CREATE Logo">
+          </div>
+        </div>
+
+        <!-- Right: simple meta -->
+        <div class="cta-right">
+          <div class="cta-date-label">Event Date</div>
+          <div class="cta-date-main">Jan 10</div>
+          <div class="cta-date-sub">2026 · Full-day event</div>
+
+          <div class="cta-host-line">
+            <span>Hosted by <strong>LEX</strong></span><br>
+            In cooperation with <strong>REC Foundation</strong> &amp; <strong>CREATE</strong>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-layout">
+      <!-- Left text -->
+      <div class="contact-left">
+        <div class="contact-kicker">Contact</div>
+        <h2 class="contact-title">Contact the organizing team</h2>
+        <p class="contact-text">
+          Have questions about team registration, divisions, or logistics?
+          Send us a message and the LEX organizing team will follow up with details.
+        </p>
+      </div>
+
+      <!-- Right form -->
+      <form class="contact-form">
+        <div class="mb-3">
+          <label class="contact-form-label" for="contactName">Name</label>
+          <input type="text" class="form-control" id="contactName" placeholder="Your full name">
+        </div>
+
+        <div class="mb-3">
+          <label class="contact-form-label" for="contactEmail">Email</label>
+          <input type="email" class="form-control" id="contactEmail" placeholder="name@school.edu">
+        </div>
+
+        <div class="mb-3">
+          <label class="contact-form-label" for="contactMessage">Message</label>
+          <textarea class="form-control" id="contactMessage" placeholder="Tell us about your teams, preferred division, and any questions."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Send message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        © 2025 VEX CREATE KOREA · Hosted by LEX Consulting
+      </div>
+      <div class="footer-links">
+        <a href="#about">About event</a>
+        <a href="#register">Register</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
