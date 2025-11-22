@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>VEX CREATE KOREA</title>
+  <title>CREATE KOREA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap for grid / container / row / col -->
@@ -14,6 +14,342 @@
 
   <!-- Shared styles -->
   <link rel="stylesheet" href="styles.css">
+    <style>
+/* HERO BOX */
+.hero-announcement-box {
+  margin-top: 1.9rem;
+  background: #4F42BD;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 1.8rem 2rem;
+/*  border-radius: 14px;*/
+  text-align: center;
+  color: #ffffff;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  backdrop-filter: blur(6px);
+}
+.hero-announcement-heading {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+.hero-announcement-sub {
+  font-size: 0.95rem;
+  color: #e5e7eb;
+  margin-bottom: 1.4rem;
+  line-height: 1.5;
+}
+.hero-announcement-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.btn-announcement-main {
+  background: #ffffff;
+  color: #111827;
+  padding: 0.75rem 1.6rem;
+  border-radius: 0.7rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.btn-announcement-main:hover {
+  background: #f3f4f6;
+}
+.btn-announcement-outline {
+  border: 1px solid rgba(255,255,255,0.6);
+  padding: 0.75rem 1.6rem;
+  border-radius: 0.7rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+.btn-announcement-outline:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* HERO CAROUSEL */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  overflow: hidden;
+}
+.hero-carousel {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.hero-bg {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+.hero-bg-1 { background-image: url('images/hero2.webp'); }
+.hero-bg-2 { background-image: url('images/hero1.jpeg'); }
+.hero-bg-3 { background-image: url('images/hero3.jpg'); }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(0,0,0,0.55), rgba(0,0,0,0.85));
+  z-index: 2;
+}
+.hero-content {
+  position: relative;
+  z-index: 3;
+}
+
+/* About partner card vertical layout */
+.about-card-org {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+/* ==================================
+   MODERN CTA SECTION STYLES
+   Uses a dark background for high contrast
+================================== */
+/* ==================================
+   MODERN CTA SECTION STYLES - BRIGHT THEME
+   Uses a bright background with red accents
+================================== */
+
+.cta-modern-section {
+  padding: 5rem 1.5rem;
+  background: var(--bg-light); /* Very light background */
+  color: var(--ink); /* Dark text for contrast */
+  border-top: 1px solid var(--border);
+}
+
+.container-modern {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cta-card-wrapper {
+  display: flex;
+  background: var(--bg); /* Pure white card background */
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+  border: 1px solid var(--border);
+}
+
+.cta-main-content {
+  flex: 1 1 65%;
+  padding: 3rem;
+}
+
+.cta-header-group {
+  margin-bottom: 2rem;
+}
+
+.cta-kicker-red {
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-size: .8rem;
+  color: var(--brand-red); /* Keep red accent for kicker */
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+
+.cta-title-modern {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0;
+  color: var(--ink);
+}
+
+.text-accent-red {
+  color: var(--brand-red);
+}
+
+.text-subtle {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.cta-subtext {
+  font-size: 1.05rem;
+  color: var(--secondary-accent);
+  margin-top: .8rem;
+  max-width: 550px;
+}
+
+/* Key Features List */
+.cta-key-features {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.cta-key-features li {
+  font-size: .95rem;
+  color: var(--secondary-accent);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+
+.cta-key-features li i {
+  color: var(--brand-red);
+  font-size: 1.1rem;
+}
+
+/* Action Buttons */
+.cta-actions-modern {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn-cta-primary-modern,
+.btn-cta-secondary-modern {
+  padding: .9rem 2rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-cta-primary-modern {
+  background: var(--brand-red); /* Primary Red */
+  color: #ffffff;
+  border: 2px solid var(--brand-red);
+  box-shadow: 0 4px 15px rgba(217, 0, 39, 0.2);
+}
+
+.btn-cta-primary-modern:hover {
+  background: #c81e35;
+  border-color: #c81e35;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(217, 0, 39, 0.4);
+}
+
+.btn-cta-secondary-modern {
+  background: transparent;
+  color: var(--secondary-accent);
+  border: 2px solid var(--border);
+}
+
+.btn-cta-secondary-modern:hover {
+  background: var(--bg-light);
+  border-color: var(--muted);
+}
+
+/* Event Meta Card (Right Column) */
+.event-meta-card {
+  flex: 0 0 35%;
+  background: var(--bg-light); /* Light Gray background for meta column */
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5rem;
+  border-left: 1px solid var(--border);
+}
+
+.meta-item-group {
+  width: 100%;
+}
+
+.meta-label {
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  color: var(--muted);
+  margin-bottom: .6rem;
+  font-weight: 600;
+}
+
+.meta-value-main {
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: .3rem;
+}
+
+.meta-value-sub {
+  font-size: .9rem;
+  color: var(--secondary-accent);
+}
+
+/* Venue Block */
+.venue-block {
+  text-align: left;
+  width: 100%;
+}
+
+.venue-logo-modern {
+  height: 120px;
+  width: auto;
+  object-fit: contain;
+  margin: 1rem 0;
+  display: block;
+}
+
+.venue-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.venue-location {
+  font-size: .95rem;
+  color: var(--muted);
+  margin-top: .2rem;
+}
+
+
+/* Responsive adjustments (same as before) */
+@media (max-width: 992px) {
+  .cta-card-wrapper {
+    flex-direction: column;
+  }
+  .cta-main-content {
+    padding: 2.5rem;
+  }
+  .event-meta-card {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2.5rem;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    gap: 1.5rem;
+  }
+  .venue-logo-modern {
+    height: 40px;
+  }
+  .meta-item-group, .venue-block {
+    flex: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .cta-main-content, .event-meta-card {
+    padding: 1.8rem;
+  }
+  .event-meta-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+  </style>
 </head>
 
 <body>
@@ -21,44 +357,69 @@
 <header class="site-header">
   <div class="nav-inner">
     <a href="index.html" class="brand-link">
-      <span class="brand-mark">VEX CREATE KOREA</span>
+      <img src="images/create-logo.png" style="height:55px;">
     </a>
 
-    <!-- Optional section links
     <nav class="nav-links" aria-label="Primary navigation">
-      <a class="nav-link" href="#about">About</a>
-      <a class="nav-link" href="#register">Register</a>
-      <a class="nav-link" href="#contact">Contact</a>
+      <a class="nav-link" href="#create">About Us</a>
+      <a class="nav-link" href="#about">KOREA OPEN</a>
+      <a class="nav-link" href="#register">2026 Event</a>
     </nav>
-    -->
 
     <a href="details.html" class="nav-cta">
-      Event Details
+      KOREA OPEN 2026
     </a>
   </div>
 </header>
 
 <!-- HERO SECTION -->
 <header class="hero" id="top">
-  <div class="container">
-    <div class="hero-eyebrow">In partnership with CREATE & REC Foundation</div>
-
-    <h1 class="hero-title">
-      <span class="red-highlight">VEX</span> CREATE KOREA
-    </h1>
-
-    <p class="hero-subtitle">
-      The next generation robotics challenge for future innovators in Korea.
-    </p>
-
-    <div class="hero-buttons">
-      <a href="#register" class="btn btn-main">Register</a>
-      <a href="#" class="btn btn-outline">Watch Trailer</a>
+  <!-- BACKGROUND CAROUSEL -->
+  <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="5000">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="hero-bg hero-bg-1"></div>
+      </div>
+      <div class="carousel-item">
+        <div class="hero-bg hero-bg-2"></div>
+      </div>
+      <div class="carousel-item">
+        <div class="hero-bg hero-bg-3"></div>
+      </div>
     </div>
   </div>
-</header>
 
-<!-- ABOUT SECTION -->
+  <!-- DARK OVERLAY (optional) -->
+  <div class="hero-overlay"></div>
+
+  <!-- CONTENT -->
+  <div class="container hero-content">
+
+    <div class="hero-eyebrow">
+      Competitive Robotics Enhancing and Advancing Technology Education
+    </div>
+
+    <h1 class="hero-title">
+      Welcome to <span class="highlight-text">CREATE KOREA</span>
+    </h1>
+
+    <!-- LARGE ANNOUNCEMENT BOX -->
+    <div class="hero-announcement-box mt-md-5">
+      <div class="hero-announcement-heading">
+        Registration Now Open — 2026 First-Ever in Korea
+      </div>
+      <div class="hero-announcement-sub">
+        Official registration is now open for the inaugural CREATE KOREA robotics competition.
+      </div>
+
+      <div class="hero-announcement-actions">
+        <a href="#register" class="btn-announcement-main">Register Now</a>
+        <a href="#about" class="btn-announcement-outline">Learn More</a>
+      </div>
+    </div>
+
+  </div>
+</header>
 <section class="about-section" id="about">
   <div class="container">
     <div class="row g-5 align-items-start">
@@ -68,74 +429,106 @@
         <div class="about-kicker">About</div>
 
         <h2 class="about-title">
-          VEX CREATE KOREA
+          What is the VEX Korea Open?
         </h2>
 
+        <!-- Division tabs (VIQRC available, V5RC coming soon) -->
+        <div style="display:flex; gap:0.75rem; margin:1rem 0 1.5rem;">
+          <button style="
+            padding:.55rem 1.3rem;
+            border-radius:999px;
+            border:none;
+            background:#4F42BD;
+            color:#fff;
+            font-weight:700;
+            font-size:.9rem;
+            cursor:default;
+          ">
+            VIQRC · Available in 2026
+          </button>
+
+          <button style="
+            padding:.55rem 1.3rem;
+            border-radius:999px;
+            border:1px solid #cbd5e1;
+            background:#f1f5f9;
+            color:#94a3b8;
+            font-weight:700;
+            font-size:.9rem;
+            cursor:not-allowed;
+          ">
+            V5RC · Coming in a future season
+          </button>
+        </div>
+
         <p class="about-subtitle">
-          <span class="highlight-text">VEX CREATE KOREA</span> gives students in Korea the chance to experience a high-level
-          robotics tournament with global standards in production, game design, and team experience.
+          The <span class="highlight-text">VEX Korea Open</span> is a national robotics event in Korea that
+          brings together VEX competition programs under one tournament brand, giving students a
+          shared, high-quality robotics experience.
         </p>
 
         <p class="about-text mb-3">
-          The competition is designed for elementary, middle, and high school teams who want to
-          go beyond classroom projects and take on an official <span class="highlight-text">VEX</span>.
-          Teams design, build, and program robots that must work reliably under real match pressure.
+          For <strong>2026</strong>, the VEX Korea Open will run the
+          <span class="highlight-text">VEX IQ Robotics Competition (VIQRC)</span>, designed for elementary
+          and middle school students using the VEX IQ platform. Teams build robots with plastic,
+          snap-together parts and learn core skills in problem-solving, coding, and teamwork.
         </p>
 
+<!--         <p class="about-text mb-3" style="opacity:.7;">
+          The <span class="highlight-text">VEX V5 Robotics Competition (V5RC)</span>—a more advanced,
+          metal-based program for older students—will be introduced in a future season and is
+          not part of the 2026 event.
+        </p> -->
+
         <p class="about-text mb-3">
-          With support from the <span class="highlight-text">REC Foundation</span> and
-          <span class="highlight-text">CREATE</span>, VEX CREATE KOREA aims to grow a strong robotics
-          ecosystem in Korea by connecting schools, coaches, and students through meaningful STEM events.
+          Through these divisions, the VEX Korea Open aims to provide an authentic engineering
+          environment where students at different levels can take on the same season’s game in
+          age-appropriate ways while sharing one connected event experience.
         </p>
 
         <div class="about-cta-group">
-          <button class="btn btn-pill btn-pill-primary">Event Overview</button>
-          <button class="btn btn-pill btn-pill-outline">Competition Details</button>
+          <button class="btn btn-pill btn-pill-primary">
+            View this year’s mission
+          </button>
         </div>
       </div>
 
-      <!-- Right: partner card -->
+      <!-- Right: partner card (foundations) -->
       <div class="col-lg-5">
         <div class="about-card">
           <div class="about-card-tag">Cooperative foundations</div>
 
-          <!-- REC Foundation block -->
-          <div class="about-card-org">
+          <!-- LEX -->
+          <div class="about-card-org" style="display:flex; flex-direction:column; align-items:center; text-align:center;">
             <div class="about-card-org-logo">
-              <img src="images/rec-logo.png" alt="REC Foundation logo">
+              <img src="images/lex-logo.png" alt="LEX logo" style="max-width:180px;">
             </div>
-            <div class="about-card-org-body">
-              <div class="about-card-org-title">REC Foundation</div>
-              <p class="about-card-org-text">
-                The Robotics Education & Competition Foundation supports student-centered
-                robotics programs worldwide, including the VEX Robotics Competition and
-                other STEM initiatives.
-              </p>
-              <a href="#" class="about-card-org-link">Learn more about REC Foundation →</a>
-            </div>
+            <p class="about-card-org-text" style="margin-bottom:0.75rem;">
+              LEX Consulting is a STEM-focused education and robotics program
+              organization in Korea, supporting schools and students through
+              high-quality coaching, competitions, and event operations.
+            </p>
+            <a href="#" class="about-card-org-link">Learn more about LEX Consulting →</a>
           </div>
 
           <div class="about-card-divider"></div>
 
-          <!-- CREATE block -->
-          <div class="about-card-org">
+          <!-- CREATE -->
+          <div class="about-card-org" style="display:flex; flex-direction:column; align-items:center; text-align:center;">
             <div class="about-card-org-logo">
-              <img src="images/create-logo2.png" alt="CREATE logo">
+              <img src="images/create-logo.png" alt="CREATE logo" style="max-width:160px;">
             </div>
-            <div class="about-card-org-body">
-              <div class="about-card-org-title">CREATE</div>
-              <p class="about-card-org-text">
-                CREATE is a Korea-based partner that helps schools and coaches launch and
-                grow robotics teams, providing training, mentoring, and event support.
-              </p>
-              <a href="#" class="about-card-org-link">Learn more about CREATE →</a>
-            </div>
+            <p class="about-card-org-text" style="margin-bottom:0.75rem;">
+              CREATE supports coaches and students by helping schools launch robotics
+              teams and providing training, mentoring, and event support across Korea.
+            </p>
+            <a href="#" class="about-card-org-link">Learn more about CREATE →</a>
           </div>
 
           <div class="about-card-divider"></div>
 
-          <p class="about-card-footer-text">
-            REC Foundation and CREATE cooperate with local organizers to support
+          <p class="about-card-footer-text" style="text-align:center;">
+            LEX and CREATE cooperate with local organizers to support
             high-quality robotics experiences for students across Korea.
           </p>
         </div>
@@ -144,6 +537,80 @@
     </div>
   </div>
 </section>
+
+<!-- CREATE ORGANIZATION SECTION (alternating columns) -->
+<section class="host-section" id="create">
+  <div class="container">
+
+    <div class="row g-5 align-items-center">
+
+      <!-- Left: Text (on desktop) -->
+      <div class="col-lg-7 order-lg-1 order-2">
+        <div style="text-transform:uppercase; letter-spacing:.17em; font-size:.8rem; color:#6b7280; margin-bottom:.5rem;">
+          About Us
+        </div>
+
+        <h2 style="font-size:2rem; font-weight:800; margin-bottom:1rem; color:#111827;">
+          CREATE
+        </h2>
+
+        <p style="font-size:1rem; color:#4b5563; line-height:1.7; margin-bottom:1rem;">
+          <span style="color:#4F42BD; font-weight:700;">CREATE</span> is a robotics and STEM education partner that works with schools,
+          coaches, and student teams to bring competition-focused learning into the classroom.
+        </p>
+
+        <p style="font-size:1rem; color:#4b5563; line-height:1.7; margin-bottom:1rem;">
+          The organization supports teams with training resources, mentoring, and event planning
+          so that students can design, build, and program robots that perform under real match pressure.
+        </p>
+
+        <p style="font-size:1rem; color:#4b5563; line-height:1.7; margin-bottom:1.4rem;">
+          CREATE helps connect schools,
+          coaches, and organizers to build a sustainable robotics ecosystem in Korea.
+        </p>
+
+<!--         <div style="margin-top:1.6rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+          <a href="#about" 
+             style="
+              padding:.65rem 1.6rem;
+              border-radius:999px;
+              background:#111827;
+              color:#ffffff;
+              font-size:.9rem;
+              font-weight:600;
+              text-decoration:none;">
+            Learn more about CREATE
+          </a>
+
+          <a href="#" 
+             style="
+              padding:.65rem 1.6rem;
+              border-radius:999px;
+              border:1px solid #9ca3af;
+              color:#374151;
+              font-size:.9rem;
+              font-weight:600;
+              text-decoration:none;">
+            Visit CREATE Website
+          </a>
+        </div> -->
+      </div>
+
+      <!-- Right: Logo (on desktop) -->
+      <div class="col-lg-5 text-center order-lg-2 order-1">
+        <img src="images/create-logo.png" 
+             alt="CREATE Logo"
+             style="max-width: 260px; width:100%; height:auto; object-fit:contain;">
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ABOUT SECTION -->
+
 
 <!-- HOSTING ORGANIZATION SECTION -->
 <section class="host-section">
@@ -182,7 +649,7 @@
         </p>
 
         <p style="font-size:1rem; color:#4b5563; line-height:1.7; margin-bottom:1.4rem;">
-          As the official hosting partner of <span style="color:#e0243a; font-weight:700;">VEX CREATE KOREA</span>, 
+          As the official hosting partner of <span style="color:#e0243a; font-weight:700;">2026 VEX Korea Open</span>, 
           LEX Consulting ensures a professional, well-organized, and student-centered competition 
           experience supported by experienced mentors and event specialists.
         </p>
@@ -220,115 +687,117 @@
   </div>
 </section>
 
-<!-- CTA SECTION -->
-<section class="cta-section" id="register">
-  <div class="container">
-    <div class="cta-inner">
-      <div class="cta-layout">
-
-        <!-- Left: main message -->
-        <div>
-          <div class="cta-left-header">
-            <div class="cta-kicker">Hosted by LEX</div>
-            <h2 class="cta-title">
-              Join the <span>First</span> VEX CREATE KOREA
-            </h2>
-            <div class="cta-sub">
-              One day of official-style VEX competition for elementary, middle, and high school teams.
-            </div>
-          </div>
-
-          <div class="cta-badges">
-            <div class="cta-pill">Jan 10 · 2026</div>
-            <div class="cta-pill">Chadwick International · Incheon</div>
-            <div class="cta-pill cta-pill-ghost">Limited team slots</div>
-          </div>
-
-          <div class="cta-actions">
-            <button class="btn-cta-main">
-              Register a Team
-            </button>
-            <button class="btn-cta-outline">
-              Download Event Brief
-            </button>
-          </div>
-
-          <div class="cta-logo-row">
-            <img src="images/lex-logo.png" alt="LEX Logo">
-            <img src="images/rec-logo.png" alt="REC Foundation Logo">
-            <img src="images/create-logo2.png" alt="CREATE Logo">
-          </div>
+<section class="cta-modern-section" id="register">
+  <div class="container-modern">
+    <div class="cta-card-wrapper">
+      <div class="cta-main-content">
+        <div class="cta-header-group">
+          <div class="cta-kicker-red">Hosted by LEX</div>
+          <h2 class="cta-title-modern">
+            Join the <span class="text-accent-red">First</span> 2026 VEX Korea Open
+            <span class="text-subtle">(VIQRC)</span>
+          </h2>
+          <p class="cta-subtext">
+            A one-day official VIQRC tournament at Chadwick International for
+            elementary and middle school teams who want a true VEX competition experience.
+          </p>
         </div>
 
-        <!-- Right: simple meta -->
-        <div class="cta-right">
-          <div class="cta-date-label">Event Date</div>
-          <div class="cta-date-main">Jan 10</div>
-          <div class="cta-date-sub">2026 · Full-day event</div>
+        <ul class="cta-key-features">
+          <li>
+            <i class="fa-solid fa-gears"></i>
+            Official VIQRC game for the 2025–2026 season
+          </li>
+          <li>
+            <i class="fa-solid fa-graduation-cap"></i>
+            Divisions for elementary and middle school teams
+          </li>
+          <li>
+            <i class="fa-solid fa-trophy"></i>
+            Top-ranking teams advance to the final round
+          </li>
+          <li>
+            <i class="fa-solid fa-user-group"></i>
+            Limited team slots; advance registration required
+          </li>
+        </ul>
 
-          <div class="cta-host-line">
-            <span>Hosted by <strong>LEX</strong></span><br>
-            In cooperation with <strong>REC Foundation</strong> &amp; <strong>CREATE</strong>
-          </div>
+        <div class="cta-actions-modern">
+          <a href="#register-form" class="btn-cta-primary-modern">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            Register a Team
+          </a>
+<!--           <a href="#" class="btn-cta-secondary-modern">
+            Download Event Brief
+          </a> -->
+        </div>
+      </div>
+
+      <div class="event-meta-card">
+        <div class="meta-item-group">
+          <div class="meta-label">EVENT DATE</div>
+          <div class="meta-value-main">Jan 10</div>
+          <div class="meta-value-sub">2026 · Full-day competition</div>
         </div>
 
+        <div class="venue-block">
+          <div class="meta-label">VENUE</div>
+          <img src="images/logo.png"
+            alt="Chadwick International School Logo"
+            class="venue-logo-modern"
+          />
+          <div class="venue-name">Chadwick International</div>
+          <div class="venue-location">Incheon, Korea</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT SECTION -->
-<section class="contact-section" id="contact">
+<section class="contact-section" id="contact" style="padding:2rem 0;">
   <div class="container">
-    <div class="contact-layout">
-      <!-- Left text -->
-      <div class="contact-left">
-        <div class="contact-kicker">Contact</div>
-        <h2 class="contact-title">Contact the organizing team</h2>
-        <p class="contact-text">
-          Have questions about team registration, divisions, or logistics?
-          Send us a message and the LEX organizing team will follow up with details.
-        </p>
+
+    <div class="contact-layout" 
+         style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:0.3rem;">
+
+      <div class="contact-kicker" style="margin:5px 0;">Contact</div>
+
+      <h2 class="contact-title" style="margin:10px 0;">
+        Contact the organizing team
+      </h2>
+
+      <p class="contact-text" style="max-width:600px; margin:10px 0;">
+        Have questions about team registration, divisions, or logistics?
+        Contact us using the email address below.
+      </p>
+
+      <div style="
+        margin-top:0.5rem;
+        padding:1rem 1.6rem;
+        background:#f9fafb;
+        border:1px solid #e5e7eb;
+        border-radius:8px;
+        font-size:1.05rem;
+        color:#111827;
+        font-weight:600;">
+        createkorea@gmail.com
       </div>
 
-      <!-- Right form -->
-      <form class="contact-form">
-        <div class="mb-3">
-          <label class="contact-form-label" for="contactName">Name</label>
-          <input type="text" class="form-control" id="contactName" placeholder="Your full name">
-        </div>
-
-        <div class="mb-3">
-          <label class="contact-form-label" for="contactEmail">Email</label>
-          <input type="email" class="form-control" id="contactEmail" placeholder="name@school.edu">
-        </div>
-
-        <div class="mb-3">
-          <label class="contact-form-label" for="contactMessage">Message</label>
-          <textarea class="form-control" id="contactMessage" placeholder="Tell us about your teams, preferred division, and any questions."></textarea>
-        </div>
-
-        <button type="submit" class="btn-submit">Send message</button>
-      </form>
     </div>
+
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-inner">
-      <div>
-        © 2025 VEX CREATE KOREA · Hosted by LEX Consulting
-      </div>
-      <div class="footer-links">
-        <a href="#about">About event</a>
-        <a href="#register">Register</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </div>
-</footer>
+
+      <footer class="simple-footer" id="footer">
+        <div class="simple-footer-inner">
+          <span class="footer-logo">CREATE KOREA © 2025</span>
+        </div>
+      </footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

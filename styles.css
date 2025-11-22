@@ -164,6 +164,7 @@ a:focus-visible{
 /* =====================
    LANDING: HERO SECTION
 ====================== */
+/* ===== HERO LAYOUT (with carousel background) ===== */
 .hero {
   position: relative;
   height: 100vh;
@@ -174,28 +175,54 @@ a:focus-visible{
   color: #fff;
   text-align: center;
   padding: 0 1rem;
-  background-image: url("images/temphero.jpg");
+  overflow: hidden; /* important for carousel background */
+}
+
+/* Bootstrap carousel stretched as background */
+.hero-carousel {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg {
+  width: 100%;
+  height: 100vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.hero::before {
-  content: "";
+/* Set your actual hero images here */
+.hero-bg-1 {
+  background-image: url("images/hero1.jpg");
+}
+.hero-bg-2 {
+  background-image: url("images/hero2.jpg");
+}
+.hero-bg-3 {
+  background-image: url("images/hero3.jpg");
+}
+
+/* Dark overlay above images */
+.hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     rgba(0, 0, 0, 0.55),
     rgba(0, 0, 0, 0.70)
   );
-  z-index: 0;
-}
-
-.hero > .container {
-  position: relative;
   z-index: 1;
 }
 
+/* Content on top */
+.hero > .container,
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== HERO TYPOGRAPHY ===== */
 .hero-eyebrow {
   font-size: .85rem;
   text-transform: uppercase;
@@ -212,8 +239,9 @@ a:focus-visible{
   line-height: 1.1;
 }
 
+/* if you still use this anywhere */
 .red-highlight {
-  color: #e0243a;
+  color: #8638D9;
   font-weight: 900;
 }
 
@@ -226,6 +254,7 @@ a:focus-visible{
   margin-right: auto;
 }
 
+/* ===== HERO MAIN BUTTONS (below title, if used) ===== */
 .hero-buttons {
   margin-top: 1.8rem;
   display: flex;
@@ -234,16 +263,17 @@ a:focus-visible{
 }
 
 .btn-main {
-  background: #e0243a;
+  background: #8638D9;
   border: none;
   padding: .75rem 1.6rem;
   border-radius: 50px;
   font-weight: 600;
-  color:white;
+  color: #fff;
+  text-decoration: none;
 }
 .btn-main:hover {
-  border: 1px solid #e0243a;
-  color:white;
+  border: 1px solid #8638D9;
+  color: #fff;
 }
 
 .btn-outline {
@@ -252,12 +282,70 @@ a:focus-visible{
   padding: .75rem 1.6rem;
   color: #fff;
   font-weight: 600;
+  text-decoration: none;
 }
-
 .btn-outline:hover {
-  background: #e0243a;
+  background: #8638D9;
   border: none;
   color: #fff;
+}
+
+/* ===== LARGE ANNOUNCEMENT BOX ===== */
+.hero-announcement-box {
+  margin-top: 1.9rem;
+  background: #4F42BD;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 1.8rem 2rem;
+  text-align: center;
+  color: #ffffff;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  backdrop-filter: blur(6px);
+}
+
+.hero-announcement-heading {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.hero-announcement-sub {
+  font-size: 0.95rem;
+  color: #e5e7eb;
+  margin-bottom: 1.4rem;
+  line-height: 1.5;
+}
+
+.hero-announcement-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-announcement-main {
+  background: #ffffff;
+  color: #111827;
+  padding: 0.75rem 1.6rem;
+  border-radius: 0.7rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.btn-announcement-main:hover {
+  background: #f3f4f6;
+}
+
+.btn-announcement-outline {
+  border: 1px solid rgba(255,255,255,0.6);
+  padding: 0.75rem 1.6rem;
+  border-radius: 0.7rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+.btn-announcement-outline:hover {
+  background: rgba(255,255,255,0.15);
 }
 
 /* =====================
@@ -298,7 +386,7 @@ a:focus-visible{
 }
 
 .highlight-text {
-  color: #e0243a;
+  color: #8638D9;
   font-weight: 700;
 }
 
@@ -447,6 +535,9 @@ a:focus-visible{
 /* =====================
    LANDING: CTA SECTION
 ====================== */
+/* =====================
+   LANDING: CTA SECTION
+====================== */
 .cta-section {
   padding: 4.5rem 0 4.8rem;
   background: #f9fafb;
@@ -464,13 +555,41 @@ a:focus-visible{
   box-shadow: none;
 }
 
+/* layout: left = main, right = meta */
 .cta-layout {
   display: flex;
   flex-wrap: wrap;
   gap: 2.2rem;
-  align-items: center;
+  align-items: flex-start;        /* was center */
   justify-content: space-between;
 }
+
+/* new: main column grows */
+.cta-main {
+  flex: 1 1 60%;
+  min-width: 280px;
+}
+
+.cta-right {
+  text-align: right;
+  min-width: 260px;
+  flex: 0 0 auto;
+
+  /* NEW: stack date + card nicely */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.6rem;
+}
+
+@media (max-width: 768px) {
+  .cta-right {
+    text-align: left;
+    align-items: flex-start;
+    margin-top: 2rem;
+  }
+}
+
 
 @media (max-width: 768px) {
   .cta-inner {
@@ -501,7 +620,7 @@ a:focus-visible{
 }
 
 .cta-title span {
-  color: #e0243a;
+  color: #8638D9;
 }
 
 .cta-sub {
@@ -509,28 +628,15 @@ a:focus-visible{
   color: #4b5563;
 }
 
-.cta-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .5rem;
-  margin-bottom: 1.4rem;
-  margin-top: .8rem;
+/* CTA bullet list */
+.cta-list{
+  margin:1rem 0 1.2rem;
+  padding-left:1.2rem;
+  font-size:.92rem;
+  color:#4b5563;
 }
-
-.cta-pill {
-  padding: .45rem 1rem;
-  border-radius: 999px;
-  border: 1px solid #e5e7eb;
-  font-size: .8rem;
-  font-weight: 600;
-  color: #374151;
-  background: #ffffff;
-}
-
-.cta-pill-ghost {
-  border-style: dashed;
-  background: transparent;
-  color: #6b7280;
+.cta-list li{
+  margin-bottom:.25rem;
 }
 
 .cta-actions {
@@ -544,7 +650,7 @@ a:focus-visible{
   padding: .85rem 2rem;
   border-radius: 999px;
   border: none;
-  background: #e0243a;
+  background: #8638D9;
   color: #ffffff;
   font-size: .92rem;
   font-weight: 700;
@@ -566,18 +672,6 @@ a:focus-visible{
 
 .btn-cta-outline:hover {
   background: #eef2f7;
-}
-
-.cta-right {
-  text-align: right;
-  min-width: 240px;
-  flex: 0 0 auto;
-}
-
-@media (max-width: 768px) {
-  .cta-right {
-    text-align: left;
-  }
 }
 
 .cta-date-label {
@@ -612,7 +706,7 @@ a:focus-visible{
 }
 
 .cta-host-line strong {
-  color: #e0243a;
+  color: #8638D9;
   font-weight: 700;
 }
 
@@ -637,6 +731,51 @@ a:focus-visible{
   }
   .cta-logo-row img {
     height: 36px;
+  }
+}
+
+/* ===== CTA partner card ===== */
+.cta-partner-card {
+  margin-top: 1.6rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  padding: 1.1rem 1.3rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.partner-card-title {
+  font-size: .8rem;
+  text-transform: uppercase;
+  color: #6b7280;
+  letter-spacing: .14em;
+  font-weight: 700;
+  margin-bottom: .9rem;
+}
+
+.partner-logo-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.partner-logo-row img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  opacity: .95;
+  transition: opacity .2s ease;
+}
+
+.partner-logo-row img:hover {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .partner-logo-row img {
+    height: 34px;
   }
 }
 
@@ -726,7 +865,7 @@ a:focus-visible{
 
 .contact-form .form-control:focus,
 .contact-form .form-select:focus {
-  border-color: #e0243a;
+  border-color: #8638D9;
   box-shadow: 0 0 0 1px rgba(224,36,58,0.18);
 }
 
@@ -743,7 +882,7 @@ a:focus-visible{
   font-size: .9rem;
   font-weight: 700;
   border: none;
-  background: #e0243a;
+  background: #8638D9;
   color: #ffffff;
 }
 
@@ -965,7 +1104,7 @@ a:focus-visible{
 }
 .summary-group-title i{
   font-size:1.3rem;
-  color:var(--brand-red);
+  color:#4F42BD;
 }
 
 .summary-rows{
@@ -1086,7 +1225,7 @@ section.event-section{
 }
 .section-title i{
   font-size:2rem;
-  color:var(--brand-red);
+  color:#4F42BD;
 }
 .section-caption{
   font-size:.9rem;
@@ -1307,7 +1446,7 @@ section.event-section{
 .capacity-bar-inner{
   height:100%;
   width:27%;
-  background:var(--brand-red);
+  background:#4F42BD;
   transition:width 0.5s ease-out;
 }
 
@@ -1343,7 +1482,7 @@ section.event-section{
 }
 
 /* =====================
-   DETAILS: FOOTER
+   DETAILS: FOOTER (DETAIL PAGE)
 ====================== */
 .simple-footer{
   padding:2.5rem 1.5rem;
@@ -1363,7 +1502,7 @@ section.event-section{
 }
 .footer-logo{
   font-weight:900;
-  color:var(--brand-red);
+  color:white;
 }
 .footer-qualifier{
   color:#94a3b8;
@@ -1375,3 +1514,130 @@ section.event-section{
     padding:1.8rem 1.4rem;
   }
 }
+
+/* ===== VOLUNTEER SECTION STYLES ===== */
+.volunteer-card {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 2.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.volunteer-callout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.volunteer-text {
+    flex-grow: 1;
+    max-width: 60%;
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.btn-volunteer-cta,
+.btn-submit-form {
+    background: #007bff; /* Primary Blue */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+}
+
+.btn-volunteer-cta:hover,
+.btn-submit-form:hover {
+    background: #0056b3;
+}
+
+/* Modal Specific Styles */
+.modal-content {
+    border-radius: 8px;
+}
+
+.modal-header {
+    background-color: #f0f0f0;
+    border-bottom: 2px solid #ddd;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #333;
+}
+
+.form-control, .form-select {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .volunteer-callout {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .volunteer-text {
+        max-width: 100%;
+    }
+}
+
+/* ===== CTA VENUE CARD ===== */
+.cta-venue-card {
+  margin-top: 1.6rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  padding: 1.3rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+}
+
+.venue-card-title {
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: #6b7280;
+  font-weight: 700;
+  margin-bottom: .9rem;
+}
+
+.venue-logo {
+  height: 140px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: .7rem;
+  opacity: 0.95;
+  transition: opacity .2s ease;
+}
+
+.venue-logo:hover {
+  opacity: 1;
+}
+
+.venue-card-subtext {
+  font-size: .85rem;
+  color: #374151;
+  line-height: 1.45;
+  margin-top: .3rem;
+}
+
+@media (max-width: 768px) {
+  .venue-logo {
+    height: 42px;
+  }
+}
+

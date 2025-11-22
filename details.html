@@ -2,35 +2,105 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Event Details • VEX CREATE KOREA</title>
+  <title>Event Details • CREATE KOREA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Inter font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <!-- Remix Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.min.css">
+
   <!-- Shared styles -->
   <link rel="stylesheet" href="styles.css">
+  <style>
+.page-title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 2.2rem 0 2.8rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.page-title-left {
+  max-width: 700px;
+}
+
+/* School logo block */
+.page-title-school {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .6rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 1.2rem 1.6rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.page-title-school img {
+  height: 132px;
+  width: auto;
+  object-fit: contain;
+}
+
+.page-title-school .school-label {
+  font-size: .9rem;
+  font-weight: 600;
+  color: #374151;
+  margin-top: .2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-title-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.6rem;
+  }
+
+  .page-title-school {
+    margin-top: .3rem;
+  }
+
+  .page-title-school img {
+    height: 48px;
+  }
+}
+.venue-label {
+  font-size: .75rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #6b7280;
+  font-weight: 700;
+  margin-bottom: -1rem;
+}
+
+</style>
 </head>
 <body>
 
+  <!-- ============ HEADER ============ -->
   <header class="site-header">
     <div class="nav-inner">
-      <a href="index.html" class="brand-link">
-        <span class="brand-mark">VEX CREATE KOREA</span>
-      </a>
+    <a href="index.html" class="brand-link">
+      <img src="images/create-logo.png" style="height:55px;">
+    </a>
 
-      <!-- Optional nav links
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a class="nav-link" href="#overview">Overview</a>
-        <a class="nav-link" href="#timeline">Timeline</a>
-        <a class="nav-link" href="#capacity">Capacity</a>
-      </nav>
-      -->
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a class="nav-link" href="#create">About Us</a>
+      <a class="nav-link" href="#about">KOREA OPEN</a>
+      <a class="nav-link" href="#register">2026 Event</a>
+    </nav>
 
-      <a href="index.html#register" class="nav-cta">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe7jjnIa9fZ9ajRxVkqrYHEA-9wBBVDKAFy-J7Xjo3hfTdeiw/viewform?usp=header" class="nav-cta">
         <i class="ri-arrow-left-line"></i>
         Register Now
       </a>
@@ -39,35 +109,50 @@
 
   <main class="page-inner" id="top">
 
-    <div class="page-title-bar" id="overview">
-      <div class="page-eyebrow">VEX CREATE KOREA</div>
-      <h1 class="page-title text-strong-red">Event Details</h1>
-      <p class="page-subtitle">
-        Official information for the Seoul regional VEX V5 Robotics Competition, including event dates,
-        capacity, registration rules, and milestone deadlines.
-      </p>
-    </div>
+    <!-- ============ PAGE TITLE ============ -->
+<div class="page-title-bar" id="overview">
 
+  <div class="page-title-left">
+    <div class="page-eyebrow">CREATE KOREA</div>
+    <h1 class="page-title text-strong-red">Event Details</h1>
+    <p class="page-subtitle">
+      Official information for the Seoul regional VEX V5 Robotics Competition, including event dates,
+      capacity, registration rules, and milestone deadlines.
+    </p>
+  </div>
+
+  <!-- Right-side school logo -->
+  <div class="page-title-school">
+    <div class="venue-label">Venue</div>
+    <img src="images/logo.png" alt="Chadwick International">
+    <div class="school-label" style="margin-top:-20px !important;">Chadwick International</div>
+  </div>
+
+</div>
+
+
+
+    <!-- ============ HERO SUMMARY ============ -->
     <header class="hero-summary">
       <div class="hero-grid">
-        <!-- LEFT: Key Event Identifiers (single column) -->
+        <!-- LEFT: Key Event Identifiers -->
         <div>
           <div class="event-kicker">Key Event Identifiers</div>
 
           <div class="event-chips">
-            <span class="event-chip">
+<!--             <span class="event-chip">
               <span class="chip-label">
                 <i class="ri-barcode-line chip-icon"></i>
                 Code
               </span>
               <span>RE-V5RC-25-9926</span>
-            </span>
+            </span> -->
             <span class="event-chip">
               <span class="chip-label">
                 <i class="ri-robot-2-line chip-icon"></i>
                 Program
               </span>
-              <span>VEX V5 RC</span>
+              <span>VIQ RC</span>
             </span>
             <span class="event-chip">
               <span class="chip-label">
@@ -83,10 +168,10 @@
               </span>
               <span>Smart Field</span>
             </span>
-            <span class="event-chip event-chip-closed">
+<!--             <span class="event-chip event-chip-closed">
               <i class="ri-close-circle-fill chip-icon-red"></i>
               <span>Registration Closed</span>
-            </span>
+            </span> -->
           </div>
         </div>
 
@@ -168,13 +253,13 @@
             </div>
           </div>
 
-
         </div>
       </div>
     </header>
 
     <div class="sections-wrap">
 
+      <!-- ============ TIMELINE SECTION ============ -->
       <section class="event-section" id="timeline">
         <div class="section-header">
           <div class="section-heading">
@@ -228,77 +313,207 @@
         </div>
       </section>
 
-      <section class="event-section" id="capacity">
+      <!-- ============ CAPACITY SECTION ============ -->
+<section class="event-section" id="capacity">
+  <div class="section-header">
+    <div class="section-heading">
+      <div class="section-kicker">Event Capacity</div>
+      <h2 class="section-title">
+        <i class="ri-lock-line"></i>
+        Capacity & Limits
+      </h2>
+    </div>
+  </div>
+
+  <div class="capacity-layout">
+    <!-- Left: event limits -->
+    <div>
+      <div class="capacity-column-title">Event Limits</div>
+      <div class="capacity-rows">
+        <div class="capacity-row">
+          <div class="capacity-label">Event Name</div>
+          <div class="capacity-value">2026 VEX Korea Open (VIQRC)</div>
+        </div>
+        <div class="capacity-row">
+          <div class="capacity-label">Location</div>
+          <div class="capacity-value">Chadwick International · Incheon, Korea</div>
+        </div>
+        <div class="capacity-row">
+          <div class="capacity-label">Total Team Capacity</div>
+          <div class="capacity-value">60 teams</div>
+        </div>
+        <div class="capacity-row">
+          <div class="capacity-label">Remaining Spots</div>
+          <div class="capacity-value">44 team slots available</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: current usage -->
+    <div>
+      <div class="capacity-column-title">Current Event Usage</div>
+
+      <div class="regional-fraction-display" aria-label="Teams registered for this event">
+        <span class="fraction-used">16</span>
+        <span class="fraction-divider">/</span>
+        <span class="fraction-total">60</span>
+        <span class="fraction-label">
+          Teams currently registered for the 2026 VEX Korea Open (VIQRC)
+        </span>
+      </div>
+
+      <div class="capacity-usage">
+        Event usage: 16 / 60 teams currently registered (about 27% of total capacity).
+        
+        <div class="capacity-bar-outer" aria-hidden="true">
+          <div class="capacity-bar-inner" style="width:27%;"></div>
+        </div>
+        
+        <div class="capacity-extra-note">
+          Total capacity: 60 teams · Remaining: 44 team slots ·
+          Maximum registrations per organization: 6 teams.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+      <!-- ============ VOLUNTEER SECTION ============ -->
+      <section class="event-section" id="volunteer-signup">
         <div class="section-header">
           <div class="section-heading">
-            <div class="section-kicker">Regional Breakdown</div>
-            <h2 class="section-title">
-              <i class="ri-lock-line"></i>
-              Capacity & Limits
+            <div class="section-kicker">Join the Event Team</div>
+            <h2 class="section-title text-strong-red">
+              <i class="ri-user-star-line"></i>
+              Volunteer Registration
             </h2>
+          </div>
+          <div class="section-caption">
+            We rely on the passion of volunteers to make CREATE KOREA a success. Sign up below to join our event staff.
           </div>
         </div>
 
-        <div class="capacity-layout">
-          <div>
-            <div class="capacity-column-title">Seoul Regional Limits</div>
-            <div class="capacity-rows">
-              <div class="capacity-row">
-                <div class="capacity-label">Region Name</div>
-                <div class="capacity-value">Seoul (Korea)</div>
-              </div>
-              <div class="capacity-row">
-                <div class="capacity-label">Max Share Rule</div>
-                <div class="capacity-value">50% of total event capacity</div>
-              </div>
-              <div class="capacity-row">
-                <div class="capacity-label">Absolute Limit</div>
-                <div class="capacity-value">60 Korean teams</div>
-              </div>
-              <div class="capacity-row">
-                <div class="capacity-label">Remaining Spots</div>
-                <div class="capacity-value">44 spots within the regional limit</div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div class="capacity-column-title">Current Regional Usage</div>
-
-            <div class="regional-fraction-display" aria-label="Korean teams registered">
-              <span class="fraction-used">16</span>
-              <span class="fraction-divider">/</span>
-              <span class="fraction-total">60</span>
-              <span class="fraction-label">
-                Korean teams registered under the Seoul regional allocation
-              </span>
-            </div>
-
-            <div class="capacity-usage">
-              Regional usage: 16 / 60 Korean teams currently registered (about 27% of the regional limit).
-              
-              <div class="capacity-bar-outer" aria-hidden="true">
-                <div class="capacity-bar-inner" style="width:27%;"></div>
-              </div>
-              
-              <div class="capacity-extra-note">
-                Overall event capacity: 120 teams · Spots remaining: 2 ·
-                Maximum registrations per organization: 6 teams.
-              </div>
-            </div>
-
+        <div class="volunteer-card">
+          <div class="volunteer-callout">
+            <p class="volunteer-text">
+              Roles needed include field setup, refereeing, judging, queuing, and event logistics support.
+              No prior experience is required—training will be provided!
+            </p>
+            <button type="button" class="btn-volunteer-cta" data-bs-toggle="modal" data-bs-target="#volunteerModal">
+              Sign Up to Volunteer
+              <i class="ri-arrow-right-line"></i>
+            </button>
           </div>
         </div>
       </section>
 
-    </div>
-  </main>
+      <!-- ============ MODAL ============ -->
+      <div class="modal fade" id="volunteerModal" tabindex="-1" aria-labelledby="volunteerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="volunteerModalLabel">Volunteer Application</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="volunteerForm">
+                <div class="mb-3">
+                  <label for="fullName" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="fullName" name="Name" required>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input type="email" class="form-control" id="email" name="Email" required>
+                </div>
+                <div class="mb-3">
+                  <label for="phone" class="form-label">Phone/Contact</label>
+                  <input type="tel" class="form-control" id="phone" name="Phone">
+                </div>
+                <div class="mb-3">
+                  <label for="interest" class="form-label">Area of Interest</label>
+                  <select class="form-select" id="interest" name="Interest">
+                    <option value="Referee">Refereeing / Field Control</option>
+                    <option value="Judging">Judging (Requires technical/interview skills)</option>
+                    <option value="Logistics">Event Logistics / Setup</option>
+                    <option value="Queuing">Queuing / Pit Management</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn-submit-form">Submit Application</button>
+              </form>
+              <div id="formMessage" class="mt-3" style="display: none;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <footer class="simple-footer" id="footer">
-    <div class="simple-footer-inner">
-      <span class="footer-logo">VEX CREATE KOREA © 2025</span>
-    </div>
-  </footer>
+      <!-- ============ FOOTER ============ -->
+
+
+    </div> <!-- .sections-wrap -->
+  </main>
+      <footer class="simple-footer" id="footer">
+        <div class="simple-footer-inner">
+          <span class="footer-logo">CREATE KOREA © 2025</span>
+        </div>
+      </footer>
+  <!-- Bootstrap JS (bundle with Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Volunteer Form Script -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('volunteerForm');
+      const formMessage = document.getElementById('formMessage');
+      const modalElement = document.getElementById('volunteerModal');
+
+      // Replace with your actual Web App URL from Apps Script deployment
+const webAppUrl = 'https://script.google.com/macros/s/AKfycbxkRGq1vQC9Q_xUAlRFUpBbP_uS6ClHQyxU7q9Ls1YMNQxTuLv628fxnGsKMIrc6ubB/exec';
+
+
+      form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const formData = new FormData(form);
+          const params = new URLSearchParams(formData);
+
+          formMessage.style.display = 'block';
+          formMessage.innerHTML = 'Submitting application...';
+          formMessage.className = 'mt-3 alert alert-info';
+          formMessage.style.textAlign = 'center';
+
+          fetch(webAppUrl, {
+              method: 'POST',
+              body: params,
+              mode: 'no-cors' // we don't need to read response, just fire & forget
+          })
+          .then(() => {
+              form.reset();
+              formMessage.innerHTML = 'Thank you! Your volunteer application has been submitted successfully.';
+              formMessage.className = 'mt-3 alert alert-success';
+              
+              setTimeout(() => {
+                  if (window.bootstrap && modalElement) {
+                      let modal = bootstrap.Modal.getInstance(modalElement);
+                      if (!modal) {
+                          modal = new bootstrap.Modal(modalElement);
+                      }
+                      modal.hide();
+                  }
+                  formMessage.style.display = 'none';
+              }, 2500);
+
+          })
+          .catch((error) => {
+              formMessage.innerHTML = 'An error occurred while submitting the form. Please check your connection or try again later.';
+              formMessage.className = 'mt-3 alert alert-danger';
+              console.error('Submission error:', error);
+          });
+      });
+  });
+  </script>
 
 </body>
 </html>
