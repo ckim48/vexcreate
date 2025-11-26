@@ -1,39 +1,41 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Event Details • CREATE KOREA</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta charset="utf-8">
+ <title>Event Details • CREATE KOREA</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Inter font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Remix Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.min.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.min.css">
 
-  <!-- Shared styles -->
-  <link rel="stylesheet" href="styles.css">
-  <style>
-.page-title-bar {
+ <link rel="stylesheet" href="styles.css">
+
+ <style>
+ body {
+  font-family: 'Inter', sans-serif;
+  background: #fafafb;
+ }
+
+ /* ========== PAGE TITLE BAR ========== */
+ .page-title-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 2.5rem;
   padding: 2.2rem 0 2.8rem;
   border-bottom: 1px solid #e5e7eb;
-}
+ }
 
-.page-title-left {
+ .page-title-left {
   max-width: 700px;
-}
+ }
 
-/* School logo block */
-.page-title-school {
+ .page-title-school {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,477 +45,1007 @@
   padding: 1.2rem 1.6rem;
   border-radius: 1rem;
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-}
+ }
 
-.page-title-school img {
+ .page-title-school img {
   height: 132px;
   width: auto;
   object-fit: contain;
-}
+ }
 
-.page-title-school .school-label {
+ .page-title-school .school-label {
   font-size: .9rem;
   font-weight: 600;
   color: #374151;
   margin-top: .2rem;
-}
+ }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .page-title-bar {
-    flex-direction: column;
-    text-align: center;
-    gap: 1.6rem;
-  }
-
-  .page-title-school {
-    margin-top: .3rem;
-  }
-
-  .page-title-school img {
-    height: 48px;
-  }
-}
-.venue-label {
+ .venue-label {
   font-size: .75rem;
   letter-spacing: .16em;
   text-transform: uppercase;
   color: #6b7280;
   font-weight: 700;
   margin-bottom: -1rem;
-}
+ }
 
-</style>
+ @media (max-width: 768px) {
+  .page-title-bar {
+   flex-direction: column;
+   text-align: center;
+   gap: 1.6rem;
+  }
+
+  .page-title-school {
+   margin-top: .3rem;
+  }
+
+  .page-title-school img {
+   height: 60px;
+  }
+ }
+
+ /* ========== TIMELINE (PREVIOUSLY REDESIGNED) ========== */
+ .timeline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 2rem;
+  position: relative;
+  padding: 40px 0;
+ }
+
+ @media (min-width: 768px) {
+  .timeline::before {
+   content: "";
+   position: absolute;
+   top: 12px;
+   left: 0;
+   right: 0;
+   height: 2px;
+   background: #e5e7eb;
+   z-index: 0;
+  }
+ }
+
+ .timeline-step {
+  position: relative;
+  flex-basis: calc(33.33% - 1rem);
+  min-width: 250px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.5rem 1.25rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  z-index: 1;
+  text-align: center;
+ }
+
+ .timeline-step::before {
+  content: "";
+  position: absolute;
+  top: -38px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #ef4444;
+  border: 4px solid #fafafb;
+  z-index: 2;
+ }
+
+ .step-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.75rem;
+  align-items: center;
+ }
+
+ .step-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.25rem;
+ }
+
+ .step-date {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ef4444;
+ }
+
+ .step-time {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin-top: 0.25rem;
+ }
+ 
+ @media (max-width: 767px) {
+  .timeline {
+   flex-direction: column;
+   padding: 0 0 1rem;
+   gap: 1.5rem;
+  }
+  .timeline-step {
+   flex-basis: 100%;
+   text-align: left;
+  }
+  .timeline::before {
+   content: none;
+  }
+  .timeline-step::before {
+   content: "Step ";
+   position: relative;
+   left: auto;
+   top: auto;
+   transform: none;
+   width: auto;
+   height: auto;
+   border: none;
+   background: none;
+   font-size: 0.8rem;
+   font-weight: 700;
+   color: #6b7280;
+   margin-right: 0.25rem;
+  }
+  .timeline-step:nth-child(1)::before { content: "Step 1: "; }
+  .timeline-step:nth-child(2)::before { content: "Step 2: "; }
+  .timeline-step:nth-child(3)::before { content: "Step 3: "; }
+
+  .step-header {
+   flex-direction: row;
+   align-items: baseline;
+   margin-bottom: 0.4rem;
+  }
+  .step-label {
+   order: 2;
+   color: #ef4444;
+   font-size: 1rem;
+  }
+  .step-date {
+   order: 1;
+   color: #111827;
+   margin-right: 0.5rem;
+   font-size: 1.1rem;
+   display: none;
+  }
+  .step-time {
+   margin-top: 0;
+  }
+ }
+
+ /* ========== INFO / SCHEDULE TABS (REDESIGNED) ========== */
+ #general-info {
+  margin-top: 2rem;
+ }
+
+ #infoScheduleTabs {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: .3rem;
+  gap: .5rem;
+ }
+
+ #infoScheduleTabs .nav-link {
+  border-radius: 999px;
+  padding: .55rem 1.35rem;
+  font-weight: 500;
+  font-size: .95rem;
+  color: #4b5563;
+  background: #f3f4f6;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+ }
+
+ #infoScheduleTabs .nav-link i {
+  font-size: 1.1rem;
+ }
+
+ #infoScheduleTabs .nav-link.active {
+  color: #ffffff;
+  background: #111827;
+  border-color: #111827;
+  box-shadow: 0 12px 30px rgba(15,23,42,0.25);
+ }
+
+ .info-card .card-body {
+  padding: 1.8rem 1.9rem;
+ }
+
+ /* Meta badges above tab content */
+ .info-meta-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: 1.1rem;
+ }
+
+ .info-meta-badge {
+  font-size: .75rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  padding: .25rem .75rem;
+  color: #4b5563;
+  background: #f9fafb;
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+ }
+
+ .info-meta-badge i {
+  font-size: 1.0rem;
+ }
+
+ /* General Info list (left column) */
+ .general-list {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+ }
+
+ .general-list li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: .55rem;
+  color: #374151;
+ }
+
+ .general-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .55rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #111827;
+ }
+
+ /* General Info – At a Glance card (right column) */
+ .info-aside-card {
+  background: #f9fafb;
+  border-radius: .9rem;
+  border: 1px solid #e5e7eb;
+  padding: 1.1rem 1.25rem;
+  font-size: .9rem;
+ }
+
+ .info-aside-title {
+  font-size: .8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: #6b7280;
+  margin-bottom: .4rem;
+ }
+
+ .info-aside-row {
+  display: flex;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: .35rem 0;
+  border-bottom: 1px dashed #e5e7eb;
+ }
+
+ .info-aside-row:last-child {
+  border-bottom: none;
+ }
+
+ .info-aside-label {
+  font-weight: 500;
+  color: #4b5563;
+ }
+
+ .info-aside-value {
+  text-align: right;
+  color: #111827;
+  font-weight: 600;
+ }
+
+ /* Schedule list (Vertical Timeline Style) */
+ .schedule-list {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  border-left: 2px solid #e5e7eb;
+  padding-left: 1.5rem;
+  margin-left: 5px; /* Offset to center line visually */
+ }
+
+ .schedule-list li {
+  margin-bottom: 1.1rem; /* Increased spacing */
+  color: #374151;
+  position: relative;
+ }
+
+ .schedule-list li::before {
+  content: "";
+  position: absolute;
+  left: -1.05rem;
+  top: .25rem; /* Adjusted vertical position */
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #ef4444; /* Use primary color */
+  border: 2px solid #ffffff; /* White center ring */
+ }
+
+ .schedule-list strong {
+  display: block; /* Forced to new line for better separation */
+  min-width: auto;
+  font-weight: 700;
+  color: #111827;
+  font-size: 1.05rem;
+  margin-bottom: .2rem;
+ }
+
+ .schedule-list span {
+  display: block;
+  font-size: 0.9rem;
+  color: #4b5563;
+  line-height: 1.4;
+ }
+
+ /* Schedule – side summary card */
+ .schedule-summary-card {
+  background: #f9fafb;
+  border-radius: .9rem;
+  border: 1px solid #e5e7eb;
+  padding: 1.1rem 1.25rem;
+  font-size: .9rem;
+ }
+
+ .schedule-summary-title {
+  font-size: .8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: #6b7280;
+  margin-bottom: .4rem;
+ }
+
+ .schedule-summary-item {
+  display: flex;
+  align-items: flex-start;
+  gap: .55rem;
+  margin-bottom: .4rem;
+ }
+
+ .schedule-summary-item i {
+  font-size: 1.1rem;
+  margin-top: .05rem;
+  color: #111827;
+ }
+
+ .schedule-summary-label {
+  font-weight: 500;
+  color: #4b5563;
+ }
+
+ .schedule-summary-value {
+  color: #111827;
+ }
+
+ @media (max-width: 991px) {
+  .info-aside-card,
+  .schedule-summary-card {
+   margin-top: 1.5rem;
+  }
+ }
+ </style>
 </head>
 <body>
 
-  <!-- ============ HEADER ============ -->
-  <header class="site-header">
-    <div class="nav-inner">
-    <a href="index.html" class="brand-link">
-      <img src="images/create-logo.png" style="height:55px;">
-    </a>
+<header class="site-header">
+ <div class="nav-inner">
+  <a href="index.html" class="brand-link">
+   <img src="images/create-logo.png" style="height:55px;">
+  </a>
 
-    <nav class="nav-links" aria-label="Primary navigation">
-      <a class="nav-link" href="#create">About Us</a>
-      <a class="nav-link" href="#about">KOREA OPEN</a>
-      <a class="nav-link" href="#register">2026 Event</a>
-    </nav>
+  <nav class="nav-links" aria-label="Primary navigation">
+   <a class="nav-link" href="#create">About Us</a>
+   <a class="nav-link" href="#about">KOREA OPEN</a>
+   <a class="nav-link" href="#register">2026 Event</a>
+  </nav>
 
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe7jjnIa9fZ9ajRxVkqrYHEA-9wBBVDKAFy-J7Xjo3hfTdeiw/viewform?usp=header" class="nav-cta">
-        <i class="ri-arrow-left-line"></i>
-        Register Now
-      </a>
-    </div>
-  </header>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSe7jjnIa9fZ9ajRxVkqrYHEA-9wBBVDKAFy-J7Xjo3hfTdeiw/viewform?usp=header" class="nav-cta">
+   <i class="ri-arrow-left-line"></i>
+   Register Now
+  </a>
+ </div>
+</header>
 
-  <main class="page-inner" id="top">
+<main class="page-inner" id="top">
 
-    <!-- ============ PAGE TITLE ============ -->
-<div class="page-title-bar" id="overview">
-
+ <div class="page-title-bar" id="overview">
   <div class="page-title-left">
-    <div class="page-eyebrow">CREATE KOREA</div>
-    <h1 class="page-title text-strong-red">Event Details</h1>
-    <p class="page-subtitle">
-      Official information for the Seoul regional VEX V5 Robotics Competition, including event dates,
-      capacity, registration rules, and milestone deadlines.
-    </p>
+   <div class="page-eyebrow">CREATE KOREA</div>
+   <h1 class="page-title text-strong-red">Event Details</h1>
+   <p class="page-subtitle">
+    Official information for the Incheon VEX IQ Robotics Competition (VIQRC), including event date,
+    capacity, registration rules, and milestone deadlines.
+   </p>
   </div>
 
-  <!-- Right-side school logo -->
   <div class="page-title-school">
-    <div class="venue-label">Venue</div>
-    <img src="images/logo.png" alt="Chadwick International">
-    <div class="school-label" style="margin-top:-20px !important;">Chadwick International</div>
+   <div class="venue-label">Venue</div>
+   <img src="images/logo.png" alt="Chadwick International">
+   <div class="school-label" style="margin-top:-20px !important;">Chadwick International · Incheon</div>
   </div>
+ </div>
 
-</div>
+ <header class="hero-summary">
+  <div class="hero-grid">
+   <div>
+    <div class="event-kicker">Key Event Identifiers</div>
 
+    <div class="event-chips">
+     <span class="event-chip">
+      <span class="chip-label">
+       <i class="ri-robot-2-line chip-icon"></i>
+       Program
+      </span>
+      <span>VIQRC</span>
+     </span>
+     <span class="event-chip">
+      <span class="chip-label">
+       <i class="ri-map-pin-line chip-icon"></i>
+       Format
+      </span>
+      <span>In-Person</span>
+     </span>
+     <span class="event-chip">
+      <span class="chip-label">
+       <i class="ri-user-smile-line chip-icon"></i>
+       Grade Level
+      </span>
+      <span>Elementary & Middle School</span>
+     </span>
+    </div>
+   </div>
 
+   <div>
+    <div class="hero-side-heading">Event Snapshot</div>
 
-    <!-- ============ HERO SUMMARY ============ -->
-    <header class="hero-summary">
-      <div class="hero-grid">
-        <!-- LEFT: Key Event Identifiers -->
-        <div>
-          <div class="event-kicker">Key Event Identifiers</div>
-
-          <div class="event-chips">
-<!--             <span class="event-chip">
-              <span class="chip-label">
-                <i class="ri-barcode-line chip-icon"></i>
-                Code
-              </span>
-              <span>RE-V5RC-25-9926</span>
-            </span> -->
-            <span class="event-chip">
-              <span class="chip-label">
-                <i class="ri-robot-2-line chip-icon"></i>
-                Program
-              </span>
-              <span>VIQ RC</span>
-            </span>
-            <span class="event-chip">
-              <span class="chip-label">
-                <i class="ri-map-pin-line chip-icon"></i>
-                Format
-              </span>
-              <span>In-Person</span>
-            </span>
-            <span class="event-chip">
-              <span class="chip-label">
-                <i class="ri-wireless-charging-line chip-icon"></i>
-                Control
-              </span>
-              <span>Smart Field</span>
-            </span>
-<!--             <span class="event-chip event-chip-closed">
-              <i class="ri-close-circle-fill chip-icon-red"></i>
-              <span>Registration Closed</span>
-            </span> -->
-          </div>
-        </div>
-
-        <!-- RIGHT: Event Snapshot -->
-        <div>
-          <div class="hero-side-heading">Event Snapshot</div>
-
-          <div class="summary-groups">
-            <div>
-              <div class="summary-group-title">
-                <i class="ri-calendar-event-line"></i>
-                Event Logistics
-              </div>
-              <div class="summary-rows">
-                <div class="summary-row">
-                  <div class="summary-label">
-                    <i class="ri-calendar-line"></i>Dates
-                  </div>
-                  <div class="summary-value">
-                    31-Jul-2026 – 2-Aug-2026
-                    <small>Three-day event window</small>
-                  </div>
-                </div>
-                <div class="summary-row">
-                  <div class="summary-label">
-                    <i class="ri-global-line"></i>Region
-                  </div>
-                  <div class="summary-value">Seoul, South Korea</div>
-                </div>
-                <div class="summary-row">
-                  <div class="summary-label">
-                    <i class="ri-group-line"></i>Capacity
-                  </div>
-                  <div class="summary-value">
-                    120 teams
-                    <small>Maximum 6 teams per organization</small>
-                  </div>
-                </div>
-                <div class="summary-row">
-                  <div class="summary-label">
-                    <i class="ri-wallet-line"></i>Fee
-                  </div>
-                  <div class="summary-value">$450.00 per team</div>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div class="summary-group-title">
-                <i class="ri-settings-3-line"></i>
-                Competition Setup
-              </div>
-              <div class="summary-rows">
-                <div class="summary-row">
-                  <div class="summary-label">
-                    <i class="ri-medal-line"></i>Program
-                  </div>
-                  <div class="summary-value">VEX V5 Robotics Competition</div>
-                </div>
-                <div class="summary-row">
-                  <div class="summary-label">
-                    <i class="ri-trophy-line"></i>Type
-                  </div>
-                  <div class="summary-value">Open Tournament</div>
-                </div>
-                <div class="summary-row">
-                  <div class="summary-label">
-                    <i class="ri-layout-line"></i>Format
-                  </div>
-                  <div class="summary-value">In-Person</div>
-                </div>
-                <div class="summary-row">
-                  <div class="summary-label">
-                    <i class="ri-plug-line"></i>Field Control
-                  </div>
-                  <div class="summary-value">Smart Field Control</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
+    <div class="summary-groups">
+     <div>
+      <div class="summary-group-title">
+       <i class="ri-calendar-event-line"></i>
+       Event Logistics
       </div>
-    </header>
-
-    <div class="sections-wrap">
-
-      <!-- ============ TIMELINE SECTION ============ -->
-      <section class="event-section" id="timeline">
-        <div class="section-header">
-          <div class="section-heading">
-            <div class="section-kicker">Registration Flow</div>
-            <h2 class="section-title">
-              <i class="ri-time-line"></i>
-              Milestone Timeline
-            </h2>
-          </div>
-          <div class="section-caption">
-            All times are listed in EDT (Eastern Daylight Time).
-          </div>
+      <div class="summary-rows">
+       <div class="summary-row">
+        <div class="summary-label">
+         <i class="ri-calendar-line"></i>Date
         </div>
-
-        <div class="timeline" aria-label="Registration timeline">
-          <div class="timeline-step">
-            <div class="step-dot-wrap">
-              <div class="step-dot"><div class="step-dot-inner"></div></div>
-            </div>
-            <div class="step-label">Early-Bird Opens</div>
-            <div class="step-date">30-May-2026</div>
-            <div class="step-time">12:00 EDT</div>
-          </div>
-
-          <div class="timeline-step">
-            <div class="step-dot-wrap">
-              <div class="step-dot"><div class="step-dot-inner"></div></div>
-            </div>
-            <div class="step-label">Standard Registration Opens</div>
-            <div class="step-date">13-Jun-2026</div>
-            <div class="step-time">12:00 EDT</div>
-          </div>
-
-          <div class="timeline-step">
-            <div class="step-dot-wrap">
-              <div class="step-dot"><div class="step-dot-inner"></div></div>
-            </div>
-            <div class="step-label">Payment Deadline</div>
-            <div class="step-date">16-Jun-2026</div>
-            <div class="step-time">16:00 EDT</div>
-          </div>
-
-          <div class="timeline-step">
-            <div class="step-dot-wrap">
-              <div class="step-dot"><div class="step-dot-inner"></div></div>
-            </div>
-            <div class="step-label">Registration Closes</div>
-            <div class="step-date">25-Jul-2026</div>
-            <div class="step-time">12:00 EDT</div>
-          </div>
+        <div class="summary-value">
+         10-Jan-2026
+         <small>One-day VIQRC qualifying event</small>
         </div>
-      </section>
+       </div>
+       <div class="summary-row">
+        <div class="summary-label">
+         <i class="ri-global-line"></i>Region
+        </div>
+        <div class="summary-value">Incheon, South Korea</div>
+       </div>
+       <div class="summary-row">
+        <div class="summary-label">
+         <i class="ri-group-line"></i>Capacity
+        </div>
+        <div class="summary-value">
+         60 teams
+         <small>Maximum 6 teams per organization</small>
+        </div>
+       </div>
+       <div class="summary-row">
+        <div class="summary-label">
+         <i class="ri-wallet-line"></i>Fee
+        </div>
+        <div class="summary-value">
+         $50.00 per team
+         <small>Subject to final confirmation</small>
+        </div>
+       </div>
+      </div>
+     </div>
 
-      <!-- ============ CAPACITY SECTION ============ -->
-<section class="event-section" id="capacity">
-  <div class="section-header">
+     <div>
+      <div class="summary-group-title">
+       <i class="ri-settings-3-line"></i>
+       Competition Setup
+      </div>
+      <div class="summary-rows">
+       <div class="summary-row">
+        <div class="summary-label">
+         <i class="ri-medal-line"></i>Program
+        </div>
+        <div class="summary-value">VEX IQ Robotics Competition (VIQRC)</div>
+       </div>
+       <div class="summary-row">
+        <div class="summary-label">
+         <i class="ri-trophy-line"></i>Type
+        </div>
+        <div class="summary-value">Qualifying Event for higher-level competitions</div>
+       </div>
+       <div class="summary-row">
+        <div class="summary-label">
+         <i class="ri-layout-line"></i>Format
+        </div>
+        <div class="summary-value">In-Person · Team-based</div>
+       </div>
+       <div class="summary-row">
+        <div class="summary-label">
+         <i class="ri-plug-line"></i>Field Control
+        </div>
+        <div class="summary-value">Standard REC Foundation field control system</div>
+       </div>
+      </div>
+     </div>
+    </div>
+
+   </div>
+  </div>
+ </header>
+
+ <div class="sections-wrap">
+
+    <section class="event-section" id="timeline">
+   <div class="section-header">
     <div class="section-heading">
-      <div class="section-kicker">Event Capacity</div>
-      <h2 class="section-title">
-        <i class="ri-lock-line"></i>
-        Capacity & Limits
-      </h2>
+     <div class="section-kicker">Registration Flow</div>
+     <h2 class="section-title">
+      <i class="ri-time-line"></i>
+      Milestone Timeline
+     </h2>
     </div>
-  </div>
+    <div class="section-caption">
+     All times are listed in KST (Korea Standard Time). Exact dates may be adjusted as preparations are finalized.
+    </div>
+   </div>
 
-  <div class="capacity-layout">
-    <!-- Left: event limits -->
+   <div class="timeline" aria-label="Registration timeline">
+    <div class="timeline-step">
+     <div class="step-header">
+      <span class="step-label">Registration Opens</span>
+     </div>
+     <div class="step-date">Early Dec 2025 (Target)</div>
+     <div class="step-time">09:00 KST</div>
+    </div>
+
+    <div class="timeline-step">
+     <div class="step-header">
+      <span class="step-label">Payment / Document Deadline</span>
+     </div>
+     <div class="step-date">Late Dec 2025</div>
+     <div class="step-time">17:00 KST</div>
+    </div>
+
+    <div class="timeline-step">
+     <div class="step-header">
+      <span class="step-label">Registration Closes</span>
+     </div>
+     <div class="step-date">Early Jan 2026</div>
+     <div class="step-time">Or when all 60 spots are filled</div>
+    </div>
+   </div>
+  </section>
+
+    <section class="event-section" id="capacity">
+   <div class="section-header">
+    <div class="section-heading">
+     <div class="section-kicker">Event Capacity</div>
+     <h2 class="section-title">
+      <i class="ri-lock-line"></i>
+      Capacity & Limits
+     </h2>
+    </div>
+   </div>
+
+   <div class="capacity-layout">
     <div>
-      <div class="capacity-column-title">Event Limits</div>
-      <div class="capacity-rows">
-        <div class="capacity-row">
-          <div class="capacity-label">Event Name</div>
-          <div class="capacity-value">2026 VEX Korea Open (VIQRC)</div>
-        </div>
-        <div class="capacity-row">
-          <div class="capacity-label">Location</div>
-          <div class="capacity-value">Chadwick International · Incheon, Korea</div>
-        </div>
-        <div class="capacity-row">
-          <div class="capacity-label">Total Team Capacity</div>
-          <div class="capacity-value">60 teams</div>
-        </div>
-        <div class="capacity-row">
-          <div class="capacity-label">Remaining Spots</div>
-          <div class="capacity-value">44 team slots available</div>
-        </div>
+     <div class="capacity-column-title">Event Limits</div>
+     <div class="capacity-rows">
+      <div class="capacity-row">
+       <div class="capacity-label">Event Name</div>
+       <div class="capacity-value">2026 VEX Korea Open (VIQRC)</div>
+      </div>
+      <div class="capacity-row">
+       <div class="capacity-label">Location</div>
+       <div class="capacity-value">Chadwick International · Incheon, Korea</div>
+      </div>
+      <div class="capacity-row">
+       <div class="capacity-label">Total Team Capacity</div>
+       <div class="capacity-value">60 teams</div>
+      </div>
+      <div class="capacity-row">
+       <div class="capacity-label">Remaining Spots</div>
+       <div class="capacity-value">
+        Displayed on the registration system as teams sign up
+       </div>
+      </div>
+      <div class="capacity-row">
+       <div class="capacity-label">Per-Organization Limit</div>
+       <div class="capacity-value">Maximum 6 teams per organization</div>
+      </div>
+     </div>
+    </div>
+
+    <div>
+     <div class="capacity-column-title">Current Event Usage</div>
+
+     <div class="regional-fraction-display" aria-label="Teams registered for this event">
+      <span class="fraction-used">0</span>
+      <span class="fraction-divider">/</span>
+      <span class="fraction-total">60</span>
+      <span class="fraction-label">
+       Teams currently registered for the 2026 VEX Korea Open (VIQRC)
+      </span>
+     </div>
+
+     <div class="capacity-usage">
+      Event usage: 0 / 60 teams currently registered.
+      <div class="capacity-bar-outer" aria-hidden="true">
+       <div class="capacity-bar-inner" style="width:0%;"></div>
+      </div>
+      <div class="capacity-extra-note">
+       Total capacity: 60 teams · Remaining spots close automatically when capacity is reached.
       </div>
     </div>
 
-    <!-- Right: current usage -->
-    <div>
-      <div class="capacity-column-title">Current Event Usage</div>
+   </div>
+  </div>
+  </section>
 
-      <div class="regional-fraction-display" aria-label="Teams registered for this event">
-        <span class="fraction-used">16</span>
-        <span class="fraction-divider">/</span>
-        <span class="fraction-total">60</span>
-        <span class="fraction-label">
-          Teams currently registered for the 2026 VEX Korea Open (VIQRC)
+    <section class="event-section" id="general-info">
+   <div class="section-header">
+    <div class="section-heading">
+     <div class="section-kicker">Event Overview</div>
+     <h2 class="section-title">
+      <i class="ri-information-line"></i>
+      General Info & Schedule
+     </h2>
+    </div>
+   </div>
+
+   <ul class="nav nav-pills mb-3" id="infoScheduleTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+     <button class="nav-link active" id="general-tab"
+         data-bs-toggle="tab" data-bs-target="#tab-general"
+         type="button" role="tab" aria-controls="tab-general" aria-selected="true">
+      <i class="ri-information-line"></i>
+      General Info
+     </button>
+    </li>
+    <li class="nav-item" role="presentation">
+     <button class="nav-link" id="schedule-tab"
+         data-bs-toggle="tab" data-bs-target="#tab-schedule"
+         type="button" role="tab" aria-controls="tab-schedule" aria-selected="false">
+      <i class="ri-calendar-schedule-line"></i>
+      Schedule
+     </button>
+    </li>
+   </ul>
+
+   <div class="tab-content">
+        <div class="tab-pane fade show active" id="tab-general" role="tabpanel" aria-labelledby="general-tab">
+     <div class="card border-0 shadow-sm info-card">
+      <div class="card-body">
+       <div class="info-meta-badges">
+        <span class="info-meta-badge">
+         <i class="ri-map-pin-line"></i>
+         Incheon · Chadwick International
         </span>
-      </div>
+        <span class="info-meta-badge">
+         <i class="ri-robot-2-line"></i>
+         VEX IQ Robotics Competition (VIQRC)
+        </span>
+        <span class="info-meta-badge">
+         <i class="ri-user-smile-line"></i>
+         Elementary & Middle School
+        </span>
+       </div>
 
-      <div class="capacity-usage">
-        Event usage: 16 / 60 teams currently registered (about 27% of total capacity).
-        
-        <div class="capacity-bar-outer" aria-hidden="true">
-          <div class="capacity-bar-inner" style="width:27%;"></div>
+       <div class="row g-4">
+        <div class="col-lg-8">
+         <p>
+          This VEX IQ Robotics Competition (VIQRC) event is a critical qualifier for regional
+          and international tournaments. It brings together teams from across Korea and Asia 
+          to compete in the current season's challenge. **Judged Awards** will be granted 
+          based on team interviews and Engineering Notebook submissions.
+         </p>
+         <h4>Key Participation Rules</h4>
+         <ul class="general-list">
+          <li>Teams must be officially registered for the current VEX IQ season with the REC Foundation.</li>
+          <li>Grade Level Eligibility: Open to Elementary School (ES) and Middle School (MS) teams.</li>
+          <li>**Engineering Notebook:** Submission of a digital or physical notebook is mandatory for consideration for the Excellence and Design Awards.</li>
+          <li>**Robot Inspection:** All robots must pass a full inspection prior to competing in Qualification Matches or Skills Challenges.</li>
+          <li>Registration operates on a strict first-come, first-served basis due to limited field capacity.</li>
+         </ul>
         </div>
-        
-        <div class="capacity-extra-note">
-          Total capacity: 60 teams · Remaining: 44 team slots ·
-          Maximum registrations per organization: 6 teams.
-        </div>
-      </div>
 
+        <div class="col-lg-4">
+         <div class="info-aside-card">
+          <div class="info-aside-title">At a Glance</div>
+          <div class="info-aside-row">
+           <span class="info-aside-label">Competition Game</span>
+           <span class="info-aside-value">VIQRC '25-'26 Season Game</span>
+          </div>
+          <div class="info-aside-row">
+           <span class="info-aside-label">Awards Process</span>
+           <span class="info-aside-value">Judged (Interviews & Notebooks)</span>
+          </div>
+          <div class="info-aside-row">
+           <span class="info-aside-label">Skills Challenges</span>
+           <span class="info-aside-value">Available all day (Limited capacity)</span>
+          </div>
+          <div class="info-aside-row">
+           <span class="info-aside-label">Public Access</span>
+           <span class="info-aside-value">Free for spectators/guests</span>
+          </div>
+          <div class="info-aside-row">
+           <span class="info-aside-label">Lunch Provision</span>
+           <span class="info-aside-value">Available for purchase on site</span>
+          </div>
+         </div>
+        </div>
+       </div>       </div>
+     </div>
     </div>
-  </div>
-</section>
 
+        <div class="tab-pane fade" id="tab-schedule" role="tabpanel" aria-labelledby="schedule-tab">
+     <div class="card border-0 shadow-sm info-card">
+      <div class="card-body">
+       <div class="info-meta-badges">
+        <span class="info-meta-badge">
+         <i class="ri-calendar-line"></i>
+         10 Jan 2026 · KST
+        </span>
+        <span class="info-meta-badge">
+         <i class="ri-time-line"></i>
+         One-day event
+        </span>
+       </div>
 
-      <!-- ============ VOLUNTEER SECTION ============ -->
-      <section class="event-section" id="volunteer-signup">
-        <div class="section-header">
-          <div class="section-heading">
-            <div class="section-kicker">Join the Event Team</div>
-            <h2 class="section-title text-strong-red">
-              <i class="ri-user-star-line"></i>
-              Volunteer Registration
-            </h2>
-          </div>
-          <div class="section-caption">
-            We rely on the passion of volunteers to make CREATE KOREA a success. Sign up below to join our event staff.
-          </div>
+       <div class="row g-4 align-items-start">
+        <div class="col-lg-8">
+         <p>
+          The schedule provides a comprehensive roadmap for the competition day. We ask all teams to adhere strictly to the check-in time to ensure a prompt start.
+         </p>
+         
+         <ul class="schedule-list">
+          <li>
+           <strong>08:00 – 09:00: Team Check-in & Pit Setup</strong>
+           <span>Teams arrive, register their presence, complete initial robot inspection, and set up their pit areas.</span>
+          </li>
+          <li>
+           <strong>09:00 – 09:30: Opening Ceremony & Driver Meeting</strong>
+           <span>Welcome address, official rule review, and Q&A session for drivers and coaches. Attendance is mandatory.</span>
+          </li>
+          <li>
+           <strong>09:30 – 12:00: Qualification Matches & Skills Runs (Session 1)</strong>
+           <span>The first competitive session of the day begins. Teams may also queue for Skills Challenges.</span>
+          </li>
+          <li>
+           <strong>12:00 – 13:00: Lunch Break</strong>
+           <span>One hour allocated for lunch. Lunch options will be available on-site for purchase.</span>
+          </li>
+          <li>
+           <strong>13:00 – 15:30: Qualification Matches, Skills, & Judging (Session 2)</strong>
+           <span>Final qualification matches, last calls for Skills, and judging interviews will conclude during this block.</span>
+          </li>
+          <li>
+           <strong>15:30 – 16:30: Finals Matches</strong>
+           <span>The top teams compete in the elimination rounds. Spectators are highly encouraged!</span>
+          </li>
+          <li>
+           <strong>16:30 – 17:00: Awards Ceremony & Closing Remarks</strong>
+           <span>Presentation of awards and announcement of teams qualified for higher-level events.</span>
+          </li>
+         </ul>
+         <p class="mb-0 mt-3">
+          *The schedule is provisional and subject to adjustment based on the final number of registered teams.
+         </p>
         </div>
 
-        <div class="volunteer-card">
-          <div class="volunteer-callout">
-            <p class="volunteer-text">
-              Roles needed include field setup, refereeing, judging, queuing, and event logistics support.
-              No prior experience is required—training will be provided!
-            </p>
-            <button type="button" class="btn-volunteer-cta" data-bs-toggle="modal" data-bs-target="#volunteerModal">
-              Sign Up to Volunteer
-              <i class="ri-arrow-right-line"></i>
-            </button>
+        <div class="col-lg-4">
+         <div class="schedule-summary-card">
+          <div class="schedule-summary-title">Event Highlights</div>
+          <div class="schedule-summary-item">
+           <i class="ri-check-line"></i>
+           <div>
+            <div class="schedule-summary-label">Mandatory Attendance</div>
+            <div class="schedule-summary-value">Opening Ceremony (09:00) & Driver Meeting</div>
+           </div>
           </div>
+          <div class="schedule-summary-item">
+           <i class="ri-alert-line"></i>
+           <div>
+            <div class="schedule-summary-label">Key Deadline</div>
+            <div class="schedule-summary-value">Final Judging Interviews end at 15:30</div>
+           </div>
+          </div>
+          <div class="schedule-summary-item">
+           <i class="ri-car-line"></i>
+           <div>
+            <div class="schedule-summary-label">Parking & Logistics</div>
+            <div class="schedule-summary-value">Please check email for detailed venue map and parking details.</div>
+          </div>
+          </div>
+         </div>
         </div>
-      </section>
+       </div>       </div>
+     </div>
+    </div>
+   </div>
+  </section>
 
-      <!-- ============ MODAL ============ -->
-      <div class="modal fade" id="volunteerModal" tabindex="-1" aria-labelledby="volunteerModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="volunteerModalLabel">Volunteer Application</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form id="volunteerForm">
-                <div class="mb-3">
-                  <label for="fullName" class="form-label">Full Name</label>
-                  <input type="text" class="form-control" id="fullName" name="Name" required>
-                </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email Address</label>
-                  <input type="email" class="form-control" id="email" name="Email" required>
-                </div>
-                <div class="mb-3">
-                  <label for="phone" class="form-label">Phone/Contact</label>
-                  <input type="tel" class="form-control" id="phone" name="Phone">
-                </div>
-                <div class="mb-3">
-                  <label for="interest" class="form-label">Area of Interest</label>
-                  <select class="form-select" id="interest" name="Interest">
-                    <option value="Referee">Refereeing / Field Control</option>
-                    <option value="Judging">Judging (Requires technical/interview skills)</option>
-                    <option value="Logistics">Event Logistics / Setup</option>
-                    <option value="Queuing">Queuing / Pit Management</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-                <button type="submit" class="btn-submit-form">Submit Application</button>
-              </form>
-              <div id="formMessage" class="mt-3" style="display: none;"></div>
-            </div>
-          </div>
-        </div>
+    <section class="event-section" id="contact">
+   <div class="section-header">
+    <div class="section-heading">
+     <div class="section-kicker">Questions & Support</div>
+     <h2 class="section-title">
+      <i class="ri-contacts-book-line"></i>
+      Event Contacts
+     </h2>
+    </div>
+   </div>
+
+   <div class="card border-0 shadow-sm">
+    <div class="card-body">
+     <p>
+      For questions about registration, payments, or event logistics, please contact the event partner.
+     </p>
+     <div class="row g-4">
+      <div class="col-md-6">
+       <h5 class="mb-1">Primary Contact</h5>
+       <p class="mb-1">Name: To be announced</p>
+       <p class="mb-1">Email: tba@createkorea.org</p>
+       <p class="mb-0">Role: Primary event coordinator</p>
       </div>
+      <div class="col-md-6">
+       <h5 class="mb-1">Secondary Contact (Optional)</h5>
+       <p class="mb-1">Name: To be announced</p>
+       <p class="mb-1">Email: tba2@createkorea.org</p>
+       <p class="mb-0">Role: Support for registration and team inquiries</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
 
-      <!-- ============ FOOTER ============ -->
+    <section class="event-section" id="volunteer-signup">
+   <div class="section-header">
+    <div class="section-heading">
+     <div class="section-kicker">Join the Event Team</div>
+     <h2 class="section-title text-strong-red">
+      <i class="ri-user-star-line"></i>
+      Volunteer Registration
+     </h2>
+    </div>
+    <div class="section-caption">
+     We rely on the passion of volunteers to make CREATE KOREA events a success. Sign up below to join our VIQRC event staff.
+    </div>
+   </div>
 
+   <div class="volunteer-card">
+    <div class="volunteer-callout">
+     <p class="volunteer-text">
+      Roles needed include field setup, refereeing, judging, queuing, and event logistics support.
+      No prior experience is required—training will be provided.
+     </p>
+     <button type="button" class="btn-volunteer-cta" data-bs-toggle="modal" data-bs-target="#volunteerModal">
+      Sign Up to Volunteer
+      <i class="ri-arrow-right-line"></i>
+     </button>
+    </div>
+   </div>
+  </section>
 
-    </div> <!-- .sections-wrap -->
-  </main>
-      <footer class="simple-footer" id="footer">
-        <div class="simple-footer-inner">
-          <span class="footer-logo">CREATE KOREA © 2025</span>
-        </div>
-      </footer>
-  <!-- Bootstrap JS (bundle with Popper) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="modal fade" id="volunteerModal" tabindex="-1" aria-labelledby="volunteerModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h5 class="modal-title" id="volunteerModalLabel">Volunteer Application</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+     </div>
+     <div class="modal-body">
+      <form id="volunteerForm">
+       <div class="mb-3">
+        <label for="fullName" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="fullName" name="Name" required>
+       </div>
+       <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="email" name="Email" required>
+       </div>
+       <div class="mb-3">
+        <label for="phone" class="form-label">Phone/Contact</label>
+        <input type="tel" class="form-control" id="phone" name="Phone">
+       </div>
+       <div class="mb-3">
+        <label for="interest" class="form-label">Area of Interest</label>
+        <select class="form-select" id="interest" name="Interest">
+         <option value="Referee">Refereeing / Field Control</option>
+         <option value="Judging">Judging (requires technical/interview skills)</option>
+         <option value="Logistics">Event Logistics / Setup</option>
+         <option value="Queuing">Queuing / Pit Management</option>
+         <option value="Other">Other</option>
+        </select>
+       </div>
+       <button type="submit" class="btn-submit-form">Submit Application</button>
+      </form>
+      <div id="formMessage" class="mt-3" style="display: none;"></div>
+    </div>
+    </div>
+   </div>
+  </div>
 
-  <!-- Volunteer Form Script -->
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('volunteerForm');
-      const formMessage = document.getElementById('formMessage');
-      const modalElement = document.getElementById('volunteerModal');
+ </div> </main>
 
-      // Replace with your actual Web App URL from Apps Script deployment
-const webAppUrl = 'https://script.google.com/macros/s/AKfycbxkRGq1vQC9Q_xUAlRFUpBbP_uS6ClHQyxU7q9Ls1YMNQxTuLv628fxnGsKMIrc6ubB/exec';
+<footer class="simple-footer" id="footer">
+ <div class="simple-footer-inner">
+  <span class="footer-logo">CREATE KOREA © 2025</span>
+ </div>
+</footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-      form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          const formData = new FormData(form);
-          const params = new URLSearchParams(formData);
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+ const form = document.getElementById('volunteerForm');
+ const formMessage = document.getElementById('formMessage');
+ const modalElement = document.getElementById('volunteerModal');
 
-          formMessage.style.display = 'block';
-          formMessage.innerHTML = 'Submitting application...';
-          formMessage.className = 'mt-3 alert alert-info';
-          formMessage.style.textAlign = 'center';
+ const webAppUrl = 'https://script.google.com/macros/s/AKfycbxkRGq1vQC9Q_xUAlRFUpBbP_uS6ClHQyxU7q9Ls1YMNQxTuLv628fxnGsKMIrc6ubB/exec';
 
-          fetch(webAppUrl, {
-              method: 'POST',
-              body: params,
-              mode: 'no-cors' // we don't need to read response, just fire & forget
-          })
-          .then(() => {
-              form.reset();
-              formMessage.innerHTML = 'Thank you! Your volunteer application has been submitted successfully.';
-              formMessage.className = 'mt-3 alert alert-success';
-              
-              setTimeout(() => {
-                  if (window.bootstrap && modalElement) {
-                      let modal = bootstrap.Modal.getInstance(modalElement);
-                      if (!modal) {
-                          modal = new bootstrap.Modal(modalElement);
-                      }
-                      modal.hide();
-                  }
-                  formMessage.style.display = 'none';
-              }, 2500);
+ form.addEventListener('submit', function(e) {
+  e.preventDefault();
 
-          })
-          .catch((error) => {
-              formMessage.innerHTML = 'An error occurred while submitting the form. Please check your connection or try again later.';
-              formMessage.className = 'mt-3 alert alert-danger';
-              console.error('Submission error:', error);
-          });
-      });
+  const formData = new FormData(form);
+  const params = new URLSearchParams(formData);
+
+  formMessage.style.display = 'block';
+  formMessage.innerHTML = 'Submitting application...';
+  formMessage.className = 'mt-3 alert alert-info';
+  formMessage.style.textAlign = 'center';
+
+  fetch(webAppUrl, {
+   method: 'POST',
+   body: params,
+   mode: 'no-cors'
+  })
+  .then(() => {
+   form.reset();
+   formMessage.innerHTML = 'Thank you. Your volunteer application has been submitted successfully.';
+   formMessage.className = 'mt-3 alert alert-success';
+
+   setTimeout(() => {
+    if (window.bootstrap && modalElement) {
+     let modal = bootstrap.Modal.getInstance(modalElement);
+     if (!modal) {
+      modal = new bootstrap.Modal(modalElement);
+     }
+     modal.hide();
+    }
+    formMessage.style.display = 'none';
+   }, 2500);
+
+  })
+  .catch((error) => {
+   formMessage.innerHTML = 'An error occurred while submitting the form. Please check your connection or try again later.';
+   formMessage.className = 'mt-3 alert alert-danger';
+   console.error('Submission error:', error);
   });
-  </script>
+ });
+});
+</script>
 
 </body>
 </html>
